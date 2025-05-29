@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valerian Freysz - CV</title>
+    <meta property="og:title" content="Valerian Freysz - CV" />
+    <meta property="og:description" content="Passionate R&D Engineer in photonics and scientific computing, I manage projects from initial concept to functional prototype. My expertise covers the entire cycle: from design and simulation to the development and realization of complex optical systems (OPO, OPA, femtosecond lasers). My skills also extend to electronics, multiphysics modeling, and programming. Currently at Alphanov, I implement this comprehensive approach for the development of ultrafast lasers and the management of innovative projects." />
+    <meta property="og:image" content="https://vfreysz.github.io/CV_html/images/mini_pic_resume.png" />
+    <meta property="og:url" content="https://vfreysz.github.io/CV_html/CV_Valerian_FREYSZ.html" />
+    <meta property="og:type" content="article" />
+    <meta name="author" content="FREYSZ Valerian">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        /* Your existing styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+            color: #4A5568;
+        }
+
+        .gradient-sidebar {
+            background-image: linear-gradient(to bottom right, #6366F1, #EC4899);
+            color: #FFFFFF;
+        }
+
+        .main-content-area {
+            background-color: #F7FAFC;
+        }
+
+        .section-title-main-styled {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2D3748;
+            position: relative;
+            padding-bottom: 0.5rem;
+            transition: color 0.3s ease-in-out;
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .section-title-main-styled {
+                font-size: 1.875rem; /* text-3xl for md and up */
+            }
+        }
+        .section-title-main-styled:hover {
+            color: #EC4899;
+        }
+        .section-title-main-styled::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-image: linear-gradient(to right, #6366F1, #EC4899);
+            border-radius: 2px;
+            transition: width 0.3s ease-in-out;
+        }
+        .section-title-main-styled:hover::after {
+            width: 70px;
+        }
+
+        .section-title-sidebar-styled {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-image-styled {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-width: 4px;
+        }
+        .profile-image-styled:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .sidebar-card-interactive {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+        }
+        .sidebar-card-interactive:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background-color: rgba(255,255,255,0.1);
+        }
+        .sidebar-card-interactive h3, .sidebar-card-interactive p, .sidebar-card-interactive ul {
+            color: #E0E7FF;
+        }
+         .sidebar-card-interactive .text-sky-600 {
+            color: #A5B4FC !important;
+        }
+        .sidebar-card-interactive .text-gray-800 {
+            color: #FFFFFF !important;
+        }
+         .sidebar-card-interactive .text-gray-700, .sidebar-card-interactive .text-gray-600, .sidebar-card-interactive .text-gray-500, .sidebar-card-interactive .text-gray-400 {
+            color: #D1D5DB !important;
+        }
+        .sidebar-card-interactive .tag {
+            background-color: rgba(255,255,255,0.2);
+            color: #FFFFFF;
+        }
+        .sidebar-card-interactive a.tag:hover { /* Specific hover for linked tags in sidebar */
+             background-color: #FFFFFF;
+             color: #6366F1;
+        }
+
+        .main-content-card-interactive {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .main-content-card-interactive:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .experience-timeline-container {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-entry-card {
+            position: relative;
+        }
+
+        .experience-entry-card::before {
+            content: '';
+            position: absolute;
+            left: -2.75rem;
+            top: 1rem;    
+            width: 16px;
+            height: 16px;
+            background-color: #EC4899;
+            border-radius: 50%;
+            border: 3px solid #F7FAFC;
+            z-index: 10;
+            transition: transform 0.3s ease-in-out;
+        }
+        .experience-entry-card:hover::before {
+            transform: scale(1.3);
+        }
+
+        .experience-entry-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: calc(-2.75rem + 7px);
+            top: calc(1rem + 16px + 3px + 5px);
+            width: 2px;
+            background-color: #CBD5E0;
+            z-index: 5;
+            bottom: -2rem;
+        }
+        
+        .icon-link-sidebar {
+            color: #E0E7FF;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .icon-link-sidebar:hover {
+            color: #FFFFFF;
+            transform: scale(1.1);
+        }
+
+        .tag { /* Default tag style */
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.375rem 0.875rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            text-decoration: none; /* Remove underline from links styled as tags */
+        }
+        a.tag:hover { /* Hover style for linked tags in main content */
+            background-color: #0ea5e9;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+         /* Ensure sidebar linked tags use their specific hover */
+        .sidebar-card-interactive a.tag {
+            background-color: rgba(255,255,255,0.2);
+            color: #FFFFFF;
+        }
+        .sidebar-card-interactive a.tag:hover {
+             background-color: #FFFFFF;
+             color: #6366F1;
+        }
+
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            animation: fadeInAnimation 0.7s ease-out forwards;
+        }
+        /* Class to force visibility for PDF generation */
+        .pdf-force-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            animation: none !important;
+        }
+
+        @keyframes fadeInAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e5e7eb;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6366F1;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4F46E5;
+        }
+
+        .control-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #1f2937;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            display: inline-flex;
+            align-items: center;
+        }
+        .control-button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .control-button.active {
+            background-color: #EC4899;
+            color: white;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+        }
+        
+         .publication-link {
+            color: #6366F1;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+         .publication-link:hover {
+            color: #4F46E5;
+        }
+
+        .action-button {
+            background-image: linear-gradient(to right, #6366F1, #8B5CF6);
+            color: white;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .action-button:hover {
+            background-image: linear-gradient(to right, #4F46E5, #7C3AED);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .footer-custom {
+            background-color: #111827;
+            color: #D1D5DB;
+        }
+        .footer-custom .text-sky-500 {
+            color: #EC4899 !important;
+        }
+        
+        /* Styles pour l'impression via le navigateur */
+        @media print {
+            body {
+                background-color: #FFFFFF !important;
+                color: #000000 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                margin: 0;
+                padding: 0;
+            }
+
+            #cv-to-export {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 10mm !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                overflow: visible !important;
+            }
+
+            #cv-to-export > div.grid {
+                display: block !important;
+                grid-template-columns: 1fr !important;
+                gap: 0 !important;
+            }
+
+            #cv-to-export aside, 
+            #cv-to-export div.main-content-area {
+                width: 100% !important;
+                display: block !important; /* Important pour le calcul des sauts */
+                float: none !important;
+                box-shadow: none !important;
+                grid-column: auto / auto !important;
+            }
+            
+            #cv-to-export aside {
+                 margin-bottom: 10mm !important;
+            }
+            #cv-to-export div.main-content-area > section:not(:last-child) {
+                 margin-bottom: 8mm !important;
+            }
+
+            .gradient-sidebar {
+                background-image: linear-gradient(to bottom right, #6366F1, #EC4899) !important;
+                color: #FFFFFF !important;
+                padding: 1.5rem !important;
+            }
+            
+            .gradient-sidebar,
+            .sidebar-card-interactive h3, 
+            .sidebar-card-interactive p, 
+            .sidebar-card-interactive ul,
+            .sidebar-card-interactive li, 
+            .sidebar-card-interactive .text-gray-700, 
+            .sidebar-card-interactive .text-gray-600, 
+            .sidebar-card-interactive .text-gray-500, 
+            .sidebar-card-interactive .text-gray-400,
+            .sidebar-card-interactive .text-indigo-100,
+            .sidebar-card-interactive .text-indigo-200,
+            .sidebar-card-interactive .text-indigo-300,
+            .sidebar-card-interactive .icon-link-sidebar {
+                color: #FFFFFF !important;
+            }
+             .sidebar-card-interactive .text-sky-600 {
+                color: #A5B4FC !important;
+            }
+            .sidebar-card-interactive .tag, .sidebar-card-interactive a.tag { /* Ensure sidebar tags are styled for print */
+                 background-color: rgba(255,255,255,0.2) !important;
+                 color: #FFFFFF !important;
+                 text-decoration: none !important;
+            }
+
+            .experience-timeline-container {
+                padding-left: 0 !important;
+            }
+            .experience-entry-card::before,
+            .experience-entry-card::after {
+                display: none !important;
+            }
+
+            .fade-in, .pdf-force-visible { /* Ensure animations are off for print */
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                animation: none !important;
+            }
+
+            .control-button, 
+            .no-print {
+                display: none !important;
+            }
+            
+            .publication-link {
+                color: #6366F1 !important;
+                text-decoration: underline !important;
+            }
+            a.tag { /* Ensure linked tags also get basic styling for print, if not sidebar */
+                color: #0369a1 !important;
+                background-color: #e0f2fe !important;
+                text-decoration: none !important;
+            }
+            
+            /* --- NOUVELLES RÈGLES DE SAUTS DE PAGE POUR L'IMPRESSION NAVIGATEUR --- */
+            .sidebar-card-interactive,
+            .main-content-card-interactive, 
+            .experience-entry-card {
+                page-break-inside: avoid !important;
+                display: block !important;
+            }
+
+            .section-title-main-styled,
+            .section-title-sidebar-styled,
+            .sidebar-card-interactive > h3, 
+            .main-content-card-interactive > h3 {
+                page-break-after: avoid !important;
+            }
+            
+            section#skills-sidebar, 
+            section#education-sidebar,
+            section#teaching-sidebar,
+            section#misc-sidebar,
+            section#experience,      
+            section#publications,
+            section#contact-main {
+                page-break-inside: auto !important;
+            }
+            
+            .manual-page-break {
+                page-break-before: always !important;
+            }
+            /* --- FIN DES NOUVELLES RÈGLES DE SAUTS DE PAGE --- */
+        }
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="fixed top-4 right-4 z-50 space-x-2 no-print"> 
+        <button id="lang-fr" class="control-button active">FR</button>
+        <button id="lang-en" class="control-button">EN</button>
+        <button id="download-pdf" class="control-button">Télécharger PDF</button>
+    </div>
+
+    <div id="cv-to-export" class="container mx-auto max-w-screen-xl p-0 my-0 md:my-8 md:rounded-xl md:shadow-2xl md:overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-0"> 
+            <aside class="md:col-span-4 lg:col-span-4 space-y-6 gradient-sidebar p-6 md:p-8"> 
+                <div class="text-center fade-in" style="animation-delay: 0.05s;">
+                    <img src="images/valerian_freysz_photo.jpg" alt="Photo de Valerian Freysz" 
+                         class="profile-image-styled object-cover w-36 h-36 rounded-full mx-auto mb-6 border-4 border-indigo-200 shadow-lg" 
+                         data-alt-fr="Photo de Valerian Freysz" data-alt-en="Photo of Valerian Freysz">
+                    <h1 class="text-4xl font-bold text-white mb-1" data-translation-key="heroTitle">Valerian Freysz</h1>
+                    <p class="text-xl font-light text-indigo-100 mb-4" data-translation-key="heroSubtitle">Photonique & Calcul Scientifique</p>
+                    <div class="flex justify-center space-x-5 text-2xl mb-4">
+                        <a id="emailLink" href="#" class="icon-link-sidebar" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a id="phoneLink" href="#" class="icon-link-sidebar" aria-label="Téléphone"><i class="fas fa-phone"></i></a>
+                        <a href="https://vfreysz.github.io" target="_blank" rel="noopener noreferrer" class="icon-link-sidebar" aria-label="Site Web"><i class="fas fa-globe"></i></a>
+                    </div>
+                    <div class="flex justify-center space-x-5 text-2xl">
+                        <a href="https://www.linkedin.com/in/valerian-freysz" target="_blank" rel="noopener noreferrer" class="icon-link-sidebar" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/vfreysz" target="_blank" rel="noopener noreferrer" class="icon-link-sidebar" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="text-sm text-indigo-200 mt-6" data-translation-key="addressSidebar">
+                        TALENCE
+                    </p>
+                </div>
+
+                <section id="about-sidebar" class="sidebar-card-interactive fade-in" style="animation-delay: 0.1s;">
+                    <h2 class="section-title-sidebar-styled mb-4">
+                        <i class="fas fa-user-tie mr-3 text-indigo-300"></i> <span data-translation-key="aboutTitle">À Propos de Moi</span>
+                    </h2>
+                    <p class="leading-relaxed text-sm" data-translation-key="aboutText"></p>
+                </section>
+
+                <section id="skills-sidebar" class="space-y-6 fade-in" style="animation-delay: 0.15s;">
+                    <div class="sidebar-card-interactive">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-cogs mr-3 text-indigo-300"></i><span data-translation-key="skillsTechTitle">Scientifique & Technique</span></h3>
+                        <ul class="list-disc list-inside space-y-1 text-sm pl-1" data-translation-list="skillsTechItems"></ul>
+                    </div>
+                    <div class="sidebar-card-interactive">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-code mr-3 text-indigo-300"></i><span data-translation-key="skillsProgTitle">Programmation</span></h3>
+                        <div class="flex flex-wrap -m-1.5" data-translation-tags="skillsProgItems"></div> 
+                    </div>
+                    <div class="sidebar-card-interactive">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-tools mr-3 text-indigo-300"></i><span data-translation-key="skillsSoftwareTitle">Logiciels & Outils</span></h3>
+                        <div class="flex flex-wrap -m-1.5" data-translation-tags="skillsSoftwareItems"></div> 
+                    </div>
+                    <div class="sidebar-card-interactive">
+                        <h3 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-lightbulb mr-3 text-indigo-300"></i><span data-translation-key="skillsOtherTitle">Autres</span></h3>
+                        <ul class="list-disc list-inside space-y-1 text-sm pl-1" data-translation-list="skillsOtherItems"></ul>
+                    </div>
+                </section>
+
+                <section id="education-sidebar" class="sidebar-card-interactive fade-in" style="animation-delay: 0.2s;">
+                    <h2 class="section-title-sidebar-styled mb-4">
+                        <i class="fas fa-graduation-cap mr-3 text-indigo-300"></i> <span data-translation-key="educationTitle">Formation</span>
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-md font-semibold" data-translation-key="eduPhdTitle"></h3>
+                            <span class="text-sm font-normal" data-translation-key="eduPhdMention"></span>
+                            <p class="text-sm" data-translation-key="eduPhdUni"></p>
+                            <p class="text-xs">2012 – 2016</p>
+                        </div>
+                        <div>
+                            <h3 class="text-md font-semibold" data-translation-key="eduMasterTitle"></h3>
+                            <span class="text-sm font-normal" data-translation-key="eduMasterMention"></span>
+                            <p class="text-sm" data-translation-key="eduMasterUni"></p>
+                            <p class="text-xs">2008 – 2010</p>
+                        </div>
+                        <div>
+                            <h3 class="text-md font-semibold" data-translation-key="eduLicenseTitle"></h3>
+                            <span class="text-sm font-normal" data-translation-key="eduLicenseMention"></span>
+                            <p class="text-sm" data-translation-key="eduLicenseUni"></p>
+                            <p class="text-xs">2005 – 2008</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="teaching-sidebar" class="sidebar-card-interactive fade-in" style="animation-delay: 0.25s;">
+                    <h2 class="section-title-sidebar-styled mb-4">
+                        <i class="fas fa-chalkboard-teacher mr-3 text-indigo-300"></i> <span data-translation-key="teachingTitle">Enseignement</span>
+                    </h2>
+                    <h3 class="text-md font-semibold" data-translation-key="teachingRole"></h3>
+                    <p class="text-sm" data-translation-key="teachingUni"></p>
+                    <p class="text-xs mb-2" data-translation-key="teachingDates"></p>
+                    <ul class="list-disc list-inside space-y-1 text-sm pl-1" data-translation-list="teachingCourses"></ul>
+                </section>
+
+                <section id="misc-sidebar" class="sidebar-card-interactive fade-in" style="animation-delay: 0.3s;">
+                    <h2 class="section-title-sidebar-styled mb-4">
+                        <i class="fas fa-info-circle mr-3 text-indigo-300"></i> <span data-translation-key="miscTitle">Divers</span>
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-md font-semibold mb-1"><span data-translation-key="miscLanguagesTitle">Langues</span></h3>
+                            <p class="text-sm" data-translation-key="miscLangFr"></p>
+                            <p class="text-sm" data-translation-key="miscLangEn"></p>
+                        </div>
+                        <div>
+                            <h3 class="text-md font-semibold mb-1"><span data-translation-key="miscPermisTitle">Permis</span></h3>
+                            <p class="text-sm" data-translation-key="miscPermisB"></p>
+                        </div>
+                        <div>
+                            <h3 class="text-md font-semibold mb-1"><span data-translation-key="miscInterestsTitle">Centres d'intérêt</span></h3>
+                            <div id="interestsListContainerSidebar" class="text-sm"></div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <div class="md:col-span-8 lg:col-span-8 space-y-10 p-6 md:p-8 main-content-area"> 
+                <section id="experience" class="fade-in" style="animation-delay: 0.35s;">
+                    <h2 class="section-title-main-styled mb-8" data-translation-key="experienceTitle">Expériences Professionnelles</h2>
+                    <div class="space-y-8 experience-timeline-container">
+                        <div class="main-content-card-interactive experience-entry-card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-1" data-translation-key="alphanovRole"></h3>
+                            <p class="text-lg text-indigo-600 mb-2">Alphanov, Talence</p>
+                            <p class="text-sm text-gray-500 mb-4" data-translation-key="alphanovDates"></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm" data-translation-list="alphanovTasks"></ul>
+                        </div>
+                        <div class="main-content-card-interactive experience-entry-card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-1" data-translation-key="lomaPostdoc1Role"></h3>
+                            <p class="text-lg text-indigo-600 mb-2">Laboratoire LOMA, Bordeaux</p>
+                            <p class="text-sm text-gray-500 mb-4" data-translation-key="lomaPostdoc1Dates"></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm" data-translation-list="lomaPostdoc1Tasks"></ul>
+                        </div>
+                        <div class="main-content-card-interactive experience-entry-card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-1" data-translation-key="lomaValoRole"></h3>
+                            <p class="text-lg text-indigo-600 mb-2">Laboratoire LOMA, Bordeaux</p>
+                            <p class="text-sm text-gray-500 mb-4" data-translation-key="lomaValoDates"></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm" data-translation-list="lomaValoTasks"></ul>
+                        </div>
+                         <div class="main-content-card-interactive experience-entry-card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-1" data-translation-key="lomaPostdoc2Role"></h3>
+                            <p class="text-lg text-indigo-600 mb-2">Laboratoire LOMA, Bordeaux</p>
+                            <p class="text-sm text-gray-500 mb-4" data-translation-key="lomaPostdoc2Dates"></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm" data-translation-list="lomaPostdoc2Tasks"></ul>
+                        </div>
+                        <div class="main-content-card-interactive experience-entry-card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-1" data-translation-key="lasiePostdocRole"></h3>
+                            <p class="text-lg text-indigo-600 mb-2">Laboratoire LaSIE, La Rochelle</p>
+                            <p class="text-sm text-gray-500 mb-4" data-translation-key="lasiePostdocDates"></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm" data-translation-list="lasiePostdocTasks"></ul>
+                        </div>
+                        <div class="main-content-card-interactive experience-entry-card">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-1" data-translation-key="lasieDoctorantRole"></h3>
+                            <p class="text-lg text-indigo-600 mb-2">Laboratoire LaSIE, La Rochelle</p>
+                            <p class="text-sm text-gray-500 mb-4" data-translation-key="lasieDoctorantDates"></p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm" data-translation-list="lasieDoctorantTasks"></ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="publications" class="fade-in" style="animation-delay: 0.4s;">
+                    <h2 class="section-title-main-styled mb-8" data-translation-key="publicationsTitle">Publications</h2>
+                    <div class="space-y-6" id="publicationsListMain">
+                        <div class="main-content-card-interactive">
+                            <p class="text-gray-700 text-sm" data-publication-key="pub1_2024_leconte"></p>
+                        </div>
+                        <div class="main-content-card-interactive">
+                            <p class="text-gray-700 text-sm" data-publication-key="pub2_2023_grande"></p>
+                        </div>
+                        <div class="main-content-card-interactive">
+                            <p class="text-gray-700 text-sm" data-publication-key="pub3_2022_ghawas"></p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-8 no-print"> 
+                        <button id="togglePublications" class="action-button font-semibold py-2 px-6 rounded-lg shadow-md" data-translation-key-more="seeMorePub" data-translation-key-less="seeLessPub">Voir plus</button>
+                    </div>
+                    <div id="morePublicationsMain" class="hidden space-y-6 mt-6">
+                        <div class="main-content-card-interactive">
+                            <p class="text-gray-700 text-sm" data-publication-key="pub4_2022_degert"></p>
+                        </div>
+                        <div class="main-content-card-interactive">
+                            <p class="text-gray-700 text-sm" data-publication-key="pub5_2022_freysz_v_e"></p>
+                        </div>
+                        <div class="main-content-card-interactive">
+                            <p class="text-gray-700 text-sm" data-publication-key="pub6_2021_ye"></p>
+                        </div>
+                        <div class="main-content-card-interactive">
+                            <p class="text-gray-700 text-sm" data-publication-key="pub7_2019_mataja"></p>
+                        </div>
+                        <div class="main-content-card-interactive">
+                            <p class="text-gray-700 text-sm" data-publication-key="pub8_2019_freysz_v_a"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contact-main" class="fade-in" style="animation-delay: 0.45s;">
+                    <h2 class="section-title-main-styled mb-8 text-center" data-translation-key="contactTitle">Contactez-moi</h2>
+                    <div class="main-content-card-interactive max-w-xl mx-auto p-6 md:p-8">
+                        <p class="text-center text-gray-700 mb-6" data-translation-key="contactIntro">N'hésitez pas à me contacter pour toute opportunité ou collaboration.</p>
+                        <div class="text-center">
+                            <a id="contactEmailButton" href="#" class="action-button font-bold py-3 px-8 rounded-lg shadow-lg inline-flex items-center">
+                                <i class="fas fa-paper-plane mr-2"></i><span data-translation-key="sendEmailBtn">Envoyer un Email</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-custom py-8 text-center mt-0"> 
+        <div class="container mx-auto px-6">
+            <p>&copy; <span id="currentYear"></span> Valerian Freysz. <span data-translation-key="allRightsReserved">Tous droits réservés.</span></p>
+            <p class="text-sm mt-1"><span data-translation-key="designedWith">Conçu avec</span> <i class="fas fa-heart text-sky-500"></i> et Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Your existing JavaScript for translations and interactions
+        const translations = {
+            fr: {
+                pageTitle: "Valerian Freysz - CV",
+                heroTitle: "Valerian Freysz",
+                heroSubtitle: "Photonique & Calcul Scientifique",
+                addressSidebar: "TALENCE",
+                aboutTitle: "À Propos de Moi",
+                aboutText: "Ingénieur R&D passionné par la photonique et le calcul scientifique, je pilote des projets de l'idée initiale jusqu'au prototype fonctionnel. Mon expertise couvre l'ensemble du cycle : de la conception et la simulation au développement et à la réalisation de systèmes optiques complexes (OPO, OPA, lasers femtosecondes). Mes compétences s'étendent également à l'électronique, la modélisation multiphysique et la programmation. Actuellement chez Alphanov, je mets en œuvre cette approche globale pour le développement de lasers ultrarapides et la gestion de projets innovants.",
+                experienceTitle: "Expériences Professionnelles",
+                alphanovRole: "Ingénieur R&D - Lasers Ultrarapides",
+                alphanovDates: "Août 2021 – Aujourd'hui",
+                alphanovTasks: [
+                    "Conception de lasers ultrarapides picosecondes et femtosecondes (notamment à fibre Erbium) dédiés à des applications de pointe telles que le test de circuits imprimés, le traitement laser du silicium, la microscopie multiphotonique  et la génération de lasers UV par effets non-linéaires fibrés.",
+                    "Conception et mise au point d'une nouvelle génération d'oscillateurs laser femtosecondes (1550 nm, NALM figure-8, tout-fibre PM) surpassant les technologies SESAM en termes de robustesse et de stabilité.",
+                    "Conception et réalisation d'un banc OLCR dédié à la mesure fine de la dispersion (< 0,5 m) et de la biréfringence des fibres optiques et CFBG, assurant une maîtrise métrologique pour la fabrication de lasers femtosecondes.",
+                    "Maîtrise approfondie de la simulation numérique pour la modélisation des systèmes laser complexes, incluant le développement de codes propriétaires (e.g., basés sur la méthode SSFM) et l'utilisation experte de logiciels commerciaux.",
+                    "Conception et développement d'amplificateurs à fibre (CPA, régime auto-similaire), où la gestion avancée des effets non-linéaires et l'optimisation des performances sont assurées par une modélisation numérique approfondie.",
+                    "Management de projets R&D axés sur le développement de nouvelles technologies, de la phase exploratoire au prototype validé.",
+                    "Intégration, formation et encadrement scientifique/technique des stagiaires, doctorants et apprentis de l'équipe R&D."
+                ],
+                lomaPostdoc1Role: "Chercheur postdoctoral",
+                lomaPostdoc1Dates: "Mai 2019 – Juillet 2021",
+                lomaPostdoc1Tasks: [
+                    "Conception et développement d'OPO picosecondes et femtosecondes à haute cadence (GHz) NIR (1400-1800 nm) via réduction de cavité et pompes haute cadence (Harmonic Mode Locking, modulation de phase/amplitude).",
+                    "Mise en place de l'Harmonic Mode Locking sur un oscillateur (NPR) femtosecondes à fibre type tige ANDi.",
+                    "Conception et développement d'un oscillateur (NPR) femtosecondes fibré ANDi.",
+                    "Développement d'un module de contrôle électronique temps réel pour la synchronisation d'une chaîne d'amplification laser (allumage de réacteurs aéronautiques).",
+                    "Conception de cartes de détection transimpédance (haut gain pour autocorrélateur NIR, photodiodes balancées pour banc pompe-sonde THz).",
+                    "Développement de codes de simulation (réflexion/transmission THz à travers silicium modulé par pompe NIR, optimisation d'oscillateurs/amplificateurs fibrés)."
+                ],
+                lomaValoRole: "Ingénieur valorisation", 
+                lomaValoDates: "Nov 2018 – Mai 2019",
+                lomaValoTasks: [
+                    "Conception et développement d'un OPO (PPLN 5% MgO) femtosecondes (100 fs) NIR (1300-2100 nm).",
+                    "Asservissement de la cavité et automatisation de la longueur d'onde du signal."
+                ],
+                lomaPostdoc2Role: "Chercheur postdoctoral",
+                lomaPostdoc2Dates: "Nov 2017 – Nov 2018",
+                lomaPostdoc2Tasks: [
+                    "Conception et développement d'un OPA double passage femtosecondes (250-450fs) NIR (1350-1650nm) avec cristal PPLN 5% MgO (rendements de conversion 18-40%).",
+                    "Développement de codes de simulation pour l'interaction pompe-signal-complémentaire dans PPLN pour OPA.",
+                    "Développement d'un autocorrélateur pour impulsions femtosecondes (scan > ns).",
+                    "Conception d'un Lock-In double phase (modulation piezo) pour asservissement de cavités OPA/OPO."
+                ],
+                lasiePostdocRole: "Chercheur postdoctoral",
+                lasiePostdocDates: "Fév 2017 – Juin 2017",
+                lasiePostdocTasks: [
+                   "Étude sur le confort thermique global/local (régime stationnaire/dynamique, théorie de l'alliesthésie).",
+                   "Analyse et proposition de stratégies d'application dans le bâtiment (microambiances, contrôle avancé de l'environnement)."
+                ],
+                lasieDoctorantRole: "Chercheur doctorant",
+                lasieDoctorantDates: "Oct 2012 – Sep 2016",
+                lasieDoctorantTasks: [
+                    "Modélisation et simulation de réacteurs pour la vapo-gazéification de la biomasse.",
+                    "Développement de codes de simulations numériques multiphysiques en phases hétérogènes (CFD, Rayonnement, Équilibre thermodynamique, Fluides réactifs, Frontières immergées)."
+                ],
+                skillsTitle: "Compétences Clés",
+                skillsTechTitle: "Scientifique & Technique",
+                skillsTechItems: [
+                    "Optique & Optique non linéaire (OPO/OPA femto-pico, oscillateurs)",
+                    "Développement Autocorrélateur",
+                    "Électronique (Prototypage, Hardware, Software)",
+                    "Microcontrôleurs (Arduino, PIC), Raspberry Pi",
+                    "Méthodes numériques (PDE couplées, Volumes finis, Split-step)",
+                    "Optimisation de code (Haut/Bas niveau)",
+                    "Mécanique, Thermique"
+                ],
+                skillsProgTitle: "Programmation",
+                skillsProgItems: [
+                    { text: "Julia", url: "https://julialang.org" },
+                    { text: "Python", url: "https://www.python.org" },
+                    { text: "Matlab", url: "https://www.mathworks.com/products/matlab.html" },
+                    { text: "Scilab", url: "https://www.scilab.org" },
+                    { text: "C", url: "https://en.wikipedia.org/wiki/C_(programming_language)" },
+                    { text: "Fortran", url: "https://fortran-lang.org" },
+                    { text: "Modelica", url: "https://modelica.org" },
+                    { text: "HTML/CSS/JS", url: "https://developer.mozilla.org/en-US/docs/Web" },
+                    { text: "LATEX", url: "https://www.latex-project.org" }
+                ],
+                skillsSoftwareTitle: "Logiciels & Outils",
+                skillsSoftwareItems: [
+                    { text: "COMSOL", url: "https://www.comsol.com" },
+                    { text: "NgSpice", url: "http://ngspice.sourceforge.net" },
+                    { text: "Fiberdesk", url: "https://www.fiberdesk.com" },
+                    { text: "SketchUp", url: "https://www.sketchup.com" },
+                    { text: "FreeCAD", url: "https://www.freecad.org" },
+                    { text: "Kicad", url: "https://www.kicad.org" },
+                    { text: "MPLAB", url: "https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" },
+                    { text: "GIMP", url: "https://www.gimp.org" },
+                    { text: "Inkscape", url: "https://inkscape.org" },
+                    { text: "Scribus", url: "https://www.scribus.net" },
+                    { text: "QT", url: "https://www.qt.io" }
+                ],
+                skillsOtherTitle: "Autres",
+                skillsOtherItems: ["Modélisation & Simulation", "Algorithmique", "Visualisation de données", "Prototypage rapide", "Gestion de projet", "Rédaction scientifique", "Veille technologique"],
+                educationTitle: "Formation",
+                eduPhdTitle: "Doctorat en Thermique et Énergétique",
+                eduPhdMention: "", 
+                eduPhdUni: "Université de La Rochelle",
+                eduMasterTitle: "Master Mécanique et Ingénieries",
+                eduMasterMention: "", 
+                eduMasterUni: "Université Bordeaux 1",
+                eduLicenseTitle: "Licence Physique",
+                eduLicenseMention: "", 
+                eduLicenseUni: "Université Bordeaux 1",
+                teachingTitle: "Enseignement",
+                teachingRole: "Moniteur",
+                teachingUni: "Université de La Rochelle",
+                teachingDates: "2013 – 2015",
+                teachingCourses: ["Opérations unitaires en bio-industries", "Physique industrielle appliquée aux biotechnologies", "Mécanique des solides indéformables"],
+                publicationsTitle: "Publications",
+                pub1_2024_leconte: "LECONTE, B., LEVENTOUX, Y., DAULIAT, R., FREYSZ, V., VIDAL, S., CASTAING, M., FÉVRIER, S., WONDRACZEK, K., JAMIER, R., AND ROY, P. (2024). 1.8 mJ pulses at 1560 nm based on a 55 µm core pure-erbium-doped VLMA fiber. <em class='text-indigo-500'>Optics Letters, 49(21), 6293-6296.</em> <a href=\"https://doi.org/10.1364/OL.538256\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(Voir l'article)</a>",
+                pub2_2023_grande: "GRANDE, A., DARWICH, D., FREYSZ, V., BOULLET, J., AND CORMIER, E. (2023). Sub-100 fs all-fiber polarization maintaining widely tunable laser at 2 µm. <em class='text-indigo-500'>Optics Letters, 48(20), 5237-5240.</em> <a href=\"https://doi.org/10.1364/OL.502511\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(Voir l'article)</a>",
+                pub3_2022_ghawas: "GHAWAS, M., FREYSZ, V., MÜLLER, L., CASSAGNÈRE, S., AND FREYSZ, E. (2022). High power ytterbium rod-type fiber laser delivering tunable picosecond pulses. <em class='text-indigo-500'>Optics Express, 30(25), 44569-44579.</em> <a href=\"https://doi.org/10.1364/OE.476353\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(Voir l'article)</a>",
+                pub4_2022_degert: "DEGERT, J., TONDUSSON, M., FREYSZ, V., ABRAHAM, E., KUMAR, S., AND FREYSZ, E. (2022). Ultrafast, broadband and tunable terahertz reflector and neutral density filter based on high resistivity silicon. <em class='text-indigo-500'>Optics Express, 30(11), 18995-19004.</em> <a href=\"https://doi.org/10.1364/OE.456012\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(Voir l'article)</a>",
+                pub5_2022_freysz_v_e: "FREYSZ, V., & FREYSZ, E. (2022). Femtosecond OPO pumped by a high power ytterbium rod-type fiber laser mode locked at harmonic repetition rates. <em class='text-indigo-500'>Optics & Laser Technology, 148, 107750.</em> <a href=\"https://doi.org/10.1016/j.optlastec.2021.107750\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(Voir l'article)</a>",
+                pub6_2021_ye: "YE, H. FREYSZ, V. BELLO-DOUA, R. PONTAGNIER, L. SANTARELLI, G. CORMIER, E. FREYSZ, E. (2021). Electro-optic comb pumped optical parametric oscillator with flexible repetition rate at GHz level. <em class='text-indigo-500'>Optics Letters.</em>",
+                pub7_2019_mataja: "Mataja, D. Freysz, V. Freysz, E. (2019). Multiple-soliton induced by long and short range interactions in large mode area ytterbium fiber laser. <em class='text-indigo-500'>OSA Laser Congress (ASSL, LAC, LS&C).</em>",
+                pub8_2019_freysz_v_a: "FREYSZ, V., AMIARD-HUDEBINE, G., ZAOUTER, Y., FREYSZ, E. (2019). Compact and versatile OPG-OPA based on a periodically poled nonlinear crystal pumped by femtosecond Ytterbium fiber laser. <em class='text-indigo-500'>Photonic West.</em>",
+                seeMorePub: "Voir plus",
+                seeLessPub: "Voir moins",
+                miscTitle: "Divers",
+                miscLanguagesTitle: "Langues",
+                miscLangFr: "Français (Natif)",
+                miscLangEn: "Anglais (Courant - Exp. 2 ans USA)",
+                miscPermisTitle: "Permis",
+                miscPermisB: "Permis B",
+                miscInterestsTitle: "Centres d'intérêt",
+                miscInterestItems: [
+                    { text: "Football" },
+                    { text: "Course à pied" },
+                    { text: "Cyclisme" },
+                    { text: "Jeux vidéo compétitifs" },
+                    { text: "Outils IA" }
+                ],
+                contactTitle: "Contactez-moi",
+                contactIntro: "N'hésitez pas à me contacter pour toute opportunité ou collaboration.",
+                sendEmailBtn: "Envoyer un Email",
+                address: "Adresse : TALENCE", 
+                allRightsReserved: "Tous droits réservés.",
+                designedWith: "Conçu avec",
+            },
+            en: { 
+                pageTitle: "Valerian Freysz - Resume",
+                heroTitle: "Valerian Freysz",
+                heroSubtitle: "Photonics & Scientific Computing",
+                addressSidebar: "TALENCE, France",
+                aboutTitle: "About Me",
+                aboutText: "Passionate R&D Engineer in photonics and scientific computing, I manage projects from initial concept to functional prototype. My expertise covers the entire cycle: from design and simulation to the development and realization of complex optical systems (OPO, OPA, femtosecond lasers). My skills also extend to electronics, multiphysics modeling, and programming. Currently at Alphanov, I implement this comprehensive approach for the development of ultrafast lasers and the management of innovative projects.",
+                experienceTitle: "Professional Experience",
+                alphanovRole: "R&D Engineer - Ultrafast Lasers",
+                alphanovDates: "August 2021 – Present",
+                alphanovTasks: [
+                    "Design of picosecond and femtosecond ultrafast lasers (notably Erbium fiber lasers) dedicated to cutting-edge applications such as printed circuit board testing, silicon laser processing, multiphoton microscopy, and UV laser generation through fiber-based nonlinear effects.",
+                    "Design and development of a new generation of femtosecond laser oscillators (1550 nm, NALM figure-8, all-PM fiber) surpassing SESAM technologies in terms of robustness and stability.",
+                    "Design and implementation of an OLCR bench dedicated to the precise measurement of dispersion (< 0.5 m) and birefringence of optical fibers and CFBGs, ensuring metrological control for femtosecond laser manufacturing.",
+                    "In-depth mastery of numerical simulation for modeling complex laser systems, including the development of proprietary codes (e.g., based on the SSFM method) and expert use of commercial software.",
+                    "Design and development of fiber amplifiers (CPA, self-similar regime), where advanced management of nonlinear effects and performance optimization are ensured by thorough numerical modeling.",
+                    "Management of R&D projects focused on the development of new technologies, from the exploratory phase to validated prototype.",
+                    "Integration, training, and scientific/technical supervision of interns, PhD students, and apprentices within the R&D team."
+                ],
+                lomaPostdoc1Role: "Postdoctoral Researcher",
+                lomaPostdoc1Dates: "May 2019 – July 2021",
+                lomaPostdoc1Tasks: [
+                    "Design and development of high-repetition-rate (GHz) pico and femto OPOs in NIR (1400-1800 nm) through cavity reduction and high-rate pumps (Harmonic Mode Locking, phase/amplitude modulation).",
+                    "Implementation of Harmonic Mode Locking on an ANDi rod-type fiber femto oscillator (NPR).",
+                    "Design and development of an ANDi fiber femto oscillator (NPR).",
+                    "Development of a real-time electronic control module for laser amplification chain synchronization (ignition of aeronautical reactors).",
+                    "Design of transimpedance detection boards (high gain for NIR autocorrelator, balanced photodiodes for THz pump-probe setup).",
+                    "Development of simulation codes (THz reflection/transmission through NIR pump-modulated silicon, optimization of fiber oscillators/amplifiers)."
+                ],
+                lomaValoRole: "Development Engineer", 
+                lomaValoDates: "Nov 2018 – May 2019",
+                lomaValoTasks: [
+                    "Design and development of a femto (100 fs) OPO (PPLN 5% MgO) in the NIR (1300-2100 nm).",
+                    "Cavity locking and automation of the signal wavelength."
+                ],
+                lomaPostdoc2Role: "Postdoctoral Researcher",
+                lomaPostdoc2Dates: "Nov 2017 – Nov 2018",
+                lomaPostdoc2Tasks: [
+                    "Design and development of a double-pass femto (250-450fs) OPA in NIR (1350-1650nm) with PPLN 5% MgO crystal (conversion efficiencies 18-40%).",
+                    "Development of simulation codes for pump-signal-idler interaction in PPLN for OPAs.",
+                    "Development of an autocorrelator for femtosecond pulses (scan > ns).",
+                    "Design of a dual-phase Lock-In (piezo modulation) for OPA/OPO cavity locking."
+                ],
+                lasiePostdocRole: "Postdoctoral Researcher",
+                lasiePostdocDates: "Feb 2017 – June 2017",
+                lasiePostdocTasks: [
+                   "Study on global/local thermal comfort (steady/dynamic state, alliesthesia theory).",
+                   "Analysis and proposal of application strategies in buildings (microenvironments, advanced environmental control)."
+                ],
+                lasieDoctorantRole: "PhD Researcher",
+                lasieDoctorantDates: "Oct 2012 – Sep 2016",
+                lasieDoctorantTasks: [
+                    "Modeling and simulation of reactors for biomass steam gasification.",
+                    "Development of multiphysics numerical simulation codes in heterogeneous phases (CFD, Radiation, Thermodynamic equilibrium, Reactive fluids, Immersed boundaries)."
+                ],
+                skillsTitle: "Key Skills",
+                skillsTechTitle: "Scientific & Technical",
+                skillsTechItems: [
+                    "Optics & Nonlinear Optics (femto-pico OPO/OPA, oscillators)",
+                    "Autocorrelator Development",
+                    "Electronics (Prototyping, Hardware, Software)",
+                    "Microcontrollers (Arduino, PIC), Raspberry Pi",
+                    "Numerical methods (Coupled PDEs, Finite volumes, Split-step)",
+                    "Code optimization (High/Low level)",
+                    "Mechanics, Thermics"
+                ],
+                skillsProgTitle: "Programming",
+                skillsProgItems: [ 
+                    { text: "Julia", url: "https://julialang.org" },
+                    { text: "Python", url: "https://www.python.org" },
+                    { text: "Matlab", url: "https://www.mathworks.com/products/matlab.html" },
+                    { text: "Scilab", url: "https://www.scilab.org" },
+                    { text: "C", url: "https://en.wikipedia.org/wiki/C_(programming_language)" },
+                    { text: "Fortran", url: "https://fortran-lang.org" },
+                    { text: "Modelica", url: "https://modelica.org" },
+                    { text: "HTML/CSS/JS", url: "https://developer.mozilla.org/en-US/docs/Web" },
+                    { text: "LATEX", url: "https://www.latex-project.org" }
+                ], 
+                skillsSoftwareTitle: "Software & Tools",
+                skillsSoftwareItems: [ 
+                    { text: "COMSOL", url: "https://www.comsol.com" },
+                    { text: "NgSpice", url: "http://ngspice.sourceforge.net" },
+                    { text: "Fiberdesk", url: "https://www.fiberdesk.com" },
+                    { text: "SketchUp", url: "https://www.sketchup.com" },
+                    { text: "FreeCAD", url: "https://www.freecad.org" },
+                    { text: "Kicad", url: "https://www.kicad.org" },
+                    { text: "MPLAB", url: "https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" },
+                    { text: "GIMP", url: "https://www.gimp.org" },
+                    { text: "Inkscape", url: "https://inkscape.org" },
+                    { text: "Scribus", url: "https://www.scribus.net" },
+                    { text: "QT", url: "https://www.qt.io" }
+                ], 
+                skillsOtherTitle: "Others",
+                skillsOtherItems: ["Modeling & Simulation", "Algorithmics", "Data Visualization", "Rapid Prototyping", "Project Management", "Scientific Writing", "Technological Watch"],
+                educationTitle: "Education",
+                eduPhdTitle: "PhD in Thermal and Energy Engineering",
+                eduPhdMention: "", 
+                eduPhdUni: "University of La Rochelle",
+                eduMasterTitle: "Master's Degree in Mechanics and Engineering",
+                eduMasterMention: "", 
+                eduMasterUni: "University Bordeaux 1",
+                eduLicenseTitle: "Bachelor's Degree in Physics",
+                eduLicenseMention: "", 
+                eduLicenseUni: "University Bordeaux 1",
+                teachingTitle: "Teaching",
+                teachingRole: "Teaching Assistant",
+                teachingUni: "University of La Rochelle",
+                teachingDates: "2013 – 2015",
+                teachingCourses: ["Unit operations in bio-industries", "Industrial physics applied to biotechnologies", "Mechanics of rigid solids"],
+                publicationsTitle: "Publications",
+                pub1_2024_leconte: "LECONTE, B., LEVENTOUX, Y., DAULIAT, R., FREYSZ, V., VIDAL, S., CASTAING, M., FÉVRIER, S., WONDRACZEK, K., JAMIER, R., AND ROY, P. (2024). 1.8 mJ pulses at 1560 nm based on a 55 µm core pure-erbium-doped VLMA fiber. <em class='text-indigo-500'>Optics Letters, 49(21), 6293-6296.</em> <a href=\"https://doi.org/10.1364/OL.538256\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(View article)</a>",
+                pub2_2023_grande: "GRANDE, A., DARWICH, D., FREYSZ, V., BOULLET, J., AND CORMIER, E. (2023). Sub-100 fs all-fiber polarization maintaining widely tunable laser at 2 µm. <em class='text-indigo-500'>Optics Letters, 48(20), 5237-5240.</em> <a href=\"https://doi.org/10.1364/OL.502511\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(View article)</a>",
+                pub3_2022_ghawas: "GHAWAS, M., FREYSZ, V., MÜLLER, L., CASSAGNÈRE, S., AND FREYSZ, E. (2022). High power ytterbium rod-type fiber laser delivering tunable picosecond pulses. <em class='text-indigo-500'>Optics Express, 30(25), 44569-44579.</em> <a href=\"https://doi.org/10.1364/OE.476353\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(View article)</a>",
+                pub4_2022_degert: "DEGERT, J., TONDUSSON, M., FREYSZ, V., ABRAHAM, E., KUMAR, S., AND FREYSZ, E. (2022). Ultrafast, broadband and tunable terahertz reflector and neutral density filter based on high resistivity silicon. <em class='text-indigo-500'>Optics Express, 30(11), 18995-19004.</em> <a href=\"https://doi.org/10.1364/OE.456012\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(View article)</a>",
+                pub5_2022_freysz_v_e: "FREYSZ, V., & FREYSZ, E. (2022). Femtosecond OPO pumped by a high power ytterbium rod-type fiber laser mode locked at harmonic repetition rates. <em class='text-indigo-500'>Optics & Laser Technology, 148, 107750.</em> <a href=\"https://doi.org/10.1016/j.optlastec.2021.107750\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"publication-link\">(View article)</a>",
+                pub6_2021_ye: "YE, H. FREYSZ, V. BELLO-DOUA, R. PONTAGNIER, L. SANTARELLI, G. CORMIER, E. FREYSZ, E. (2021). Electro-optic comb pumped optical parametric oscillator with flexible repetition rate at GHz level. <em class='text-indigo-500'>Optics Letters.</em>",
+                pub7_2019_mataja: "Mataja, D. Freysz, V. Freysz, E. (2019). Multiple-soliton induced by long and short range interactions in large mode area ytterbium fiber laser. <em class='text-indigo-500'>OSA Laser Congress (ASSL, LAC, LS&C).</em>",
+                pub8_2019_freysz_v_a: "FREYSZ, V., AMIARD-HUDEBINE, G., ZAOUTER, Y., FREYSZ, E. (2019). Compact and versatile OPG-OPA based on a periodically poled nonlinear crystal pumped by femtosecond Ytterbium fiber laser. <em class='text-indigo-500'>Photonic West.</em>",
+                seeMorePub: "See more",
+                seeLessPub: "See less",
+                miscTitle: "Miscellaneous",
+                miscLanguagesTitle: "Languages",
+                miscLangFr: "French (Native)",
+                miscLangEn: "English (Fluent - 2 years exp. USA)",
+                miscPermisTitle: "Driver's License",
+                miscPermisB: "License B",
+                miscInterestsTitle: "Interests",
+                miscInterestItems: [
+                    { text: "Football (Soccer)" },
+                    { text: "Running" },
+                    { text: "Cycling" },
+                    { text: "Competitive Video Games" },
+                    { text: "AI Tools" }
+                ],
+                contactTitle: "Contact Me",
+                contactIntro: "Feel free to contact me for any opportunity or collaboration.",
+                sendEmailBtn: "Send an Email",
+                address: "Address: TALENCE, France", 
+                allRightsReserved: "All rights reserved.",
+                designedWith: "Designed with",
+            }
+        };
+
+        let currentLang = 'fr'; 
+
+        function populateList(ulElement, listKey) {
+            const items = translations[currentLang][listKey] || translations.fr[listKey] || [];
+            ulElement.innerHTML = ''; 
+            items.forEach(itemText => {
+                const li = document.createElement('li');
+                li.textContent = itemText;
+                ulElement.appendChild(li);
+            });
+        }
+
+        function populateTags(divElement, tagsKey) {
+            const skillItems = translations[currentLang][tagsKey] || translations.fr[tagsKey] || [];
+            divElement.innerHTML = ''; 
+            skillItems.forEach(skill => {
+                if (skill && skill.text) { 
+                    if (skill.url) { 
+                        const linkElement = document.createElement('a');
+                        linkElement.href = skill.url;
+                        linkElement.target = '_blank'; 
+                        linkElement.rel = 'noopener noreferrer'; 
+                        linkElement.className = 'tag'; 
+                        linkElement.textContent = skill.text;
+                        divElement.appendChild(linkElement);
+                    } else { 
+                        const spanElement = document.createElement('span');
+                        spanElement.className = 'tag';
+                        spanElement.textContent = skill.text;
+                        divElement.appendChild(spanElement);
+                    }
+                }
+            });
+        }
+        
+        function populateInterests() {
+            const container = document.getElementById('interestsListContainerSidebar'); 
+            if (!container) return;
+            container.innerHTML = '';
+            const interestItems = translations[currentLang].miscInterestItems || translations.fr.miscInterestItems || [];
+            interestItems.forEach(item => {
+                const p = document.createElement('p');
+                p.className = 'text-sm mb-1'; 
+                p.textContent = item.text;
+                container.appendChild(p);
+            });
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang; 
+            document.title = translations[lang].pageTitle || translations.fr.pageTitle;
+
+            document.querySelectorAll('[data-translation-key]').forEach(el => {
+                const key = el.getAttribute('data-translation-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                } else if (translations.fr[key]) { 
+                    el.innerHTML = translations.fr[key];
+                }
+            });
+
+            document.querySelectorAll('[data-translation-list]').forEach(ul => {
+                const key = ul.getAttribute('data-translation-list');
+                populateList(ul, key);
+            });
+            
+            document.querySelectorAll('[data-translation-tags]').forEach(div => {
+                const key = div.getAttribute('data-translation-tags');
+                populateTags(div, key); 
+            });
+            
+            populateInterests();
+
+            document.querySelectorAll('[data-publication-key]').forEach(el => {
+                const key = el.getAttribute('data-publication-key');
+                let publicationHTML = translations[lang][key] || translations.fr[key] || "";
+                publicationHTML = publicationHTML.replace(/<a href/g, '<a class="publication-link" href');
+                publicationHTML = publicationHTML.replace(/<em class='text-sky-600'>/g, "<em class='text-indigo-500'>");
+                publicationHTML = publicationHTML.replace(/<em class='text-indigo-500'>/g, "<em class='text-indigo-500'>"); 
+                el.innerHTML = publicationHTML;
+            });
+            
+            document.querySelectorAll('img[data-alt-fr]').forEach(img => {
+                img.alt = lang === 'en' ? (img.getAttribute('data-alt-en') || img.getAttribute('data-alt-fr')) : img.getAttribute('data-alt-fr');
+            });
+
+            const togglePubButton = document.getElementById('togglePublications');
+            if (togglePubButton && !togglePubButton.classList.contains('hidden')) {
+                const isMoreEffectivelyHidden = morePublicationsMain.classList.contains('hidden');
+                const moreKey = togglePubButton.getAttribute('data-translation-key-more');
+                const lessKey = togglePubButton.getAttribute('data-translation-key-less');
+                if (isMoreEffectivelyHidden) { 
+                    togglePubButton.textContent = (translations[lang] && translations[lang][moreKey]) || translations.fr[moreKey];
+                } else {
+                    togglePubButton.textContent = (translations[lang] && translations[lang][lessKey]) || translations.fr[lessKey];
+                }
+            }
+
+            document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        document.getElementById('lang-fr').addEventListener('click', () => changeLanguage('fr'));
+        document.getElementById('lang-en').addEventListener('click', () => changeLanguage('en'));
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.05 }; 
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    // Do not unobserve, allow pdf generation to re-trigger visibility if needed
+                    // obs.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+        fadeInElements.forEach(el => {
+            el.style.animationPlayState = 'paused'; 
+            observer.observe(el);
+        });
+
+        const toggleButton = document.getElementById('togglePublications');
+        const morePublicationsMain = document.getElementById('morePublicationsMain');
+        const publicationsListMain = document.getElementById('publicationsListMain'); 
+        const initialPublicationsCount = 3; 
+        
+        if (toggleButton && morePublicationsMain && publicationsListMain) {
+            const allPubCardsInInitialDiv = Array.from(publicationsListMain.children);
+            const allPubCardsInMoreDiv = Array.from(morePublicationsMain.children);
+            const totalPublications = allPubCardsInInitialDiv.length + allPubCardsInMoreDiv.length;
+
+            function updatePublicationVisibility(showAll = false) {
+                if (showAll) {
+                    morePublicationsMain.classList.remove('hidden');
+                } else {
+                    morePublicationsMain.classList.add('hidden');
+                }
+            }
+            
+            updatePublicationVisibility(false); 
+
+            if (totalPublications <= initialPublicationsCount) { 
+                toggleButton.classList.add('hidden'); 
+            } else {
+                toggleButton.classList.remove('hidden');
+                const moreKey = toggleButton.getAttribute('data-translation-key-more');
+                const langForButton = typeof currentLang !== 'undefined' ? currentLang : 'fr';
+                toggleButton.textContent = (translations[langForButton] && translations[langForButton][moreKey]) || translations.fr[moreKey];
+            }
+
+            toggleButton.addEventListener('click', () => {
+                const isMoreHidden = morePublicationsMain.classList.contains('hidden');
+                updatePublicationVisibility(isMoreHidden); 
+                
+                const moreKey = toggleButton.getAttribute('data-translation-key-more');
+                const lessKey = toggleButton.getAttribute('data-translation-key-less');
+                if (isMoreHidden) { 
+                    toggleButton.textContent = (translations[currentLang] && translations[currentLang][lessKey]) || translations.fr[lessKey];
+                } else { 
+                    toggleButton.textContent = (translations[currentLang] && translations[currentLang][moreKey]) || translations.fr[moreKey];
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if(targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const preferredLang = localStorage.getItem('preferredLang');
+            if (preferredLang && (preferredLang === 'fr' || preferredLang === 'en')) {
+                changeLanguage(preferredLang);
+            } else {
+                changeLanguage('fr'); 
+            }
+
+            // Obfuscation des coordonnées
+            const user = 'vfreysz';
+            const domain = 'gmail.com';
+            const emailAddress = user + '@' + domain;
+
+            const countryCode = '+33';
+            const phonePart1 = '6';
+            const phonePart2 = '79';
+            const phonePart3 = '15';
+            const phonePart4 = '76';
+            const phonePart5 = '15';
+            const phoneNumber = countryCode + phonePart1 + phonePart2 + phonePart3 + phonePart4 + phonePart5;
+
+            const emailLink = document.getElementById('emailLink');
+            if (emailLink) {
+                emailLink.href = 'mailto:' + emailAddress;
+            }
+
+            const phoneLink = document.getElementById('phoneLink');
+            if (phoneLink) {
+                phoneLink.href = 'tel:' + phoneNumber;
+            }
+
+            const contactEmailButton = document.getElementById('contactEmailButton');
+            if (contactEmailButton) {
+                contactEmailButton.href = 'mailto:' + emailAddress;
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadPdfButton = document.getElementById('download-pdf');
+            // Store the original button text, considering the current language at load time.
+            let originalButtonText = downloadPdfButton.textContent; 
+            // Ensure originalButtonText is set after initial translations might have run
+            setTimeout(() => {
+                originalButtonText = downloadPdfButton.textContent;
+            }, 0);
+
+
+            if (downloadPdfButton) {
+                downloadPdfButton.addEventListener('click', generatePdf);
+            }
+
+            async function generatePdf() {
+                console.log('generatePdf function called');
+                downloadPdfButton.textContent = 'Génération PDF...';
+                downloadPdfButton.disabled = true;
+
+                const { jsPDF } = window.jspdf;
+                const html2canvas = window.html2canvas;
+
+                if (!jsPDF || !html2canvas) {
+                    console.error('jsPDF or html2canvas is not loaded!');
+                    downloadPdfButton.textContent = 'Erreur Librairies PDF';
+                    setTimeout(() => {
+                       downloadPdfButton.textContent = originalButtonText;
+                       downloadPdfButton.disabled = false;
+                    }, 3000);
+                    return;
+                }
+
+                const cvElement = document.getElementById('cv-to-export');
+                if (!cvElement) {
+                    console.error('CV element #cv-to-export not found!');
+                    downloadPdfButton.textContent = 'Erreur Contenu CV';
+                     setTimeout(() => {
+                       downloadPdfButton.textContent = originalButtonText;
+                       downloadPdfButton.disabled = false;
+                    }, 3000);
+                    return;
+                }
+                
+                // 1. Ensure fonts are loaded
+                try {
+                    await document.fonts.ready;
+                    console.log('Fonts are ready.');
+                } catch (fontError) {
+                    console.warn('Font loading error or timeout:', fontError);
+                }
+
+                // 2. Temporarily make all "fade-in" elements fully visible
+                const elementsToForceVisible = cvElement.querySelectorAll('.fade-in');
+                elementsToForceVisible.forEach(el => el.classList.add('pdf-force-visible'));
+
+                // 3. Expand publications if necessary
+                const togglePubButton = document.getElementById('togglePublications');
+                const morePublicationsDiv = document.getElementById('morePublicationsMain');
+                let publicationsWereManuallyExpanded = false;
+                if (togglePubButton && !togglePubButton.classList.contains('hidden') && morePublicationsDiv && morePublicationsDiv.classList.contains('hidden')) {
+                    morePublicationsDiv.classList.remove('hidden'); 
+                    publicationsWereManuallyExpanded = true;
+                    console.log('Publications expanded for PDF generation.');
+                }
+                
+                await new Promise(resolve => setTimeout(resolve, 300)); 
+
+                console.log('Capturing CV content with html2canvas...');
+                
+                try {
+                    window.scrollTo(0, 0);
+
+                    const canvas = await html2canvas(cvElement, {
+                        scale: 1.5, // Reduced scale
+                        useCORS: true,
+                        logging: true,
+                        backgroundColor: '#ffffff', 
+                        scrollX: 0, 
+                        scrollY: 0,
+                        // Remove windowWidth and windowHeight to let html2canvas use element's full size
+                        onclone: (documentClone) => {
+                            const noPrintElements = documentClone.querySelectorAll('.no-print');
+                            noPrintElements.forEach(el => el.style.display = 'none');
+                            
+                            const clonedFadeInElements = documentClone.querySelectorAll('.fade-in');
+                            clonedFadeInElements.forEach(el => {
+                                el.style.opacity = '1';
+                                el.style.transform = 'translateY(0px)';
+                                el.style.animation = 'none';
+                            });
+                            const clonedMorePublications = documentClone.getElementById('morePublicationsMain');
+                            if (publicationsWereManuallyExpanded && clonedMorePublications) {
+                                clonedMorePublications.style.display = 'block'; 
+                                clonedMorePublications.classList.remove('hidden');
+                            }
+                        }
+                    });
+                    
+                    console.log(`Canvas generated. Dimensions: ${canvas.width}x${canvas.height}`);
+                    if (canvas.width === 0 || canvas.height === 0) {
+                        console.error("Canvas has zero width or height. Aborting PDF generation.");
+                        throw new Error("Canvas rendering failed or resulted in zero dimensions.");
+                    }
+
+                    const imgData = canvas.toDataURL('image/png');
+                    if (imgData.length < 200) { // Check for practically empty image data
+                       console.error("Generated image data is very small, likely an empty image.");
+                       throw new Error("Generated image data is too small, probably an empty canvas.");
+                    }
+                    
+                    const pdfWidthMm = 210;
+                    const pdfHeightMm = 297;
+                    const marginMm = 10; 
+                    const contentWidthMm = pdfWidthMm - 2 * marginMm;
+                    const pdfPageInnerHeightMm = pdfHeightMm - 2 * marginMm;
+                    
+                    const imgProps = (new jsPDF()).getImageProperties(imgData); // Get properties from the full image
+                    const totalPdfImgHeightMm = (imgProps.height * contentWidthMm) / imgProps.width;
+
+
+                    const pdf = new jsPDF({
+                        orientation: 'p',
+                        unit: 'mm',
+                        format: 'a4',
+                        compress: true 
+                    });
+
+                    const canvasPixelHeight = canvas.height; 
+                    const canvasPixelWidth = canvas.width;
+
+                    // Calculate the height of a slice from the source canvas (in pixels)
+                    // that will fit onto one PDF page when scaled.
+                    const sliceSourceHeightPx = Math.floor((pdfPageInnerHeightMm * canvasPixelWidth) / contentWidthMm);
+
+                    let numPages = Math.ceil(totalPdfImgHeightMm / pdfPageInnerHeightMm);
+                    if (numPages === 0 && totalPdfImgHeightMm > 0) numPages = 1; // Ensure at least one page if there's content
+
+                    if (totalPdfImgHeightMm <= pdfPageInnerHeightMm && totalPdfImgHeightMm > 0) { 
+                        pdf.addImage(imgData, 'PNG', marginMm, marginMm, contentWidthMm, totalPdfImgHeightMm, undefined, 'FAST');
+                    } else if (totalPdfImgHeightMm > 0) { 
+                        let yOffsetPx = 0; 
+
+                        for (let i = 0; i < numPages; i++) {
+                            let currentSliceSourceHeightPx = Math.min(sliceSourceHeightPx, canvasPixelHeight - yOffsetPx);
+                            
+                            if (currentSliceSourceHeightPx <= 0) {
+                                console.warn(`Calculated currentSliceSourceHeightPx is ${currentSliceSourceHeightPx} on page ${i}. Breaking loop.`);
+                                break; 
+                            }
+                            
+                            const pageCanvas = document.createElement('canvas');
+                            pageCanvas.width = canvasPixelWidth;
+                            pageCanvas.height = currentSliceSourceHeightPx;
+                            const pageCtx = pageCanvas.getContext('2d');
+                            
+                            pageCtx.drawImage(canvas, 0, yOffsetPx, canvasPixelWidth, currentSliceSourceHeightPx, 0, 0, canvasPixelWidth, currentSliceSourceHeightPx);
+                            const pageImgDataUri = pageCanvas.toDataURL('image/png');
+
+                            // Calculate the height this slice will have on the PDF page
+                            let destHeightMm = (currentSliceSourceHeightPx * contentWidthMm) / canvasPixelWidth;
+
+                            if (i > 0) {
+                                pdf.addPage();
+                            }
+                            // Ensure the image is not placed outside the page margins if it's the last part
+                            // and smaller than a full page.
+                            pdf.addImage(pageImgDataUri, 'PNG', marginMm, marginMm, contentWidthMm, destHeightMm, undefined, 'FAST');
+                            yOffsetPx += currentSliceSourceHeightPx;
+                        }
+                    } else {
+                        console.warn("Total PDF image height is zero or less. No pages added.");
+                         throw new Error("Calculated PDF image height is zero. Cannot generate PDF.");
+                    }
+                    
+                    pdf.save('CV_Valerian_FREYSZ.pdf');
+                    console.log('PDF generated and download initiated.');
+                    downloadPdfButton.textContent = 'PDF Téléchargé!';
+
+                } catch (error) {
+                    console.error('Error generating PDF:', error);
+                    console.error('Error name:', error.name);
+                    console.error('Error message:', error.message);
+                    if (error.stack) {
+                        console.error('Error stack:', error.stack);
+                    }
+                    downloadPdfButton.textContent = 'Erreur PDF (voir console)';
+                } finally {
+                    elementsToForceVisible.forEach(el => el.classList.remove('pdf-force-visible'));
+                    if (publicationsWereManuallyExpanded && morePublicationsDiv) {
+                        morePublicationsDiv.classList.add('hidden'); 
+                        console.log('Publications collapsed after PDF generation.');
+                    }
+                     setTimeout(() => {
+                       downloadPdfButton.textContent = originalButtonText; // Restore original button text
+                       downloadPdfButton.disabled = false;
+                    }, 3000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
