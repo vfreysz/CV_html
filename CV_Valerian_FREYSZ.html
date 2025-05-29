@@ -1170,57 +1170,94 @@
             });
         });
         
-        document.addEventListener('DOMContentLoaded', () => {
-            const preferredLang = localStorage.getItem('preferredLang');
-            if (preferredLang && (preferredLang === 'fr' || preferredLang === 'en')) {
-                changeLanguage(preferredLang);
-            } else {
-                changeLanguage('fr'); 
-            }
+document.addEventListener('DOMContentLoaded', () => {
+    // ---- Tout votre code existant pour la langue et les coordonnées reste ici ----
+    const preferredLang = localStorage.getItem('preferredLang');
+    if (preferredLang && (preferredLang === 'fr' || preferredLang === 'en')) {
+        changeLanguage(preferredLang);
+    } else {
+        changeLanguage('fr'); 
+    }
 
-            // Obfuscation des coordonnées
-            const user = 'vfreysz';
-            const domain = 'gmail.com';
-            const emailAddress = user + '@' + domain;
+    // Obfuscation des coordonnées
+    const user = 'vfreysz';
+    const domain = 'gmail.com';
+    const emailAddress = user + '@' + domain;
 
-            const countryCode = '+33';
-            const phonePart1 = '6';
-            const phonePart2 = '79';
-            const phonePart3 = '15';
-            const phonePart4 = '76';
-            const phonePart5 = '15';
-            const phoneNumber = countryCode + phonePart1 + phonePart2 + phonePart3 + phonePart4 + phonePart5;
+    const countryCode = '+33';
+    const phonePart1 = '6';
+    const phonePart2 = '79';
+    const phonePart3 = '15';
+    const phonePart4 = '76';
+    const phonePart5 = '15';
+    const phoneNumber = countryCode + phonePart1 + phonePart2 + phonePart3 + phonePart4 + phonePart5;
 
-            const emailLink = document.getElementById('emailLink');
-            if (emailLink) {
-                emailLink.href = 'mailto:' + emailAddress;
-            }
+    const emailLink = document.getElementById('emailLink');
+    if (emailLink) { emailLink.href = 'mailto:' + emailAddress; }
 
-            const phoneLink = document.getElementById('phoneLink');
-            if (phoneLink) {
-                phoneLink.href = 'tel:' + phoneNumber;
-            }
+    const phoneLink = document.getElementById('phoneLink');
+    if (phoneLink) { phoneLink.href = 'tel:' + phoneNumber; }
+    
+    const contactEmailButton = document.getElementById('contactEmailButton');
+    if (contactEmailButton) { contactEmailButton.href = 'mailto:' + emailAddress; }
+    // ---- Fin du code existant ----
 
-            const contactEmailButton = document.getElementById('contactEmailButton');
-            if (contactEmailButton) {
-                contactEmailButton.href = 'mailto:' + emailAddress;
-            }
 
-            const downloadPdfButton = document.getElementById('download-pdf');
-            if (downloadPdfButton) {
-                downloadPdfButton.addEventListener('click', () => {
-                    // 1. Affiche l'alerte dans la langue actuelle
-                    const alertMessage = translations[currentLang]?.pdfAlert || translations.fr.pdfAlert;
-                    alert(alertMessage);
+    // ---- NOUVELLE LOGIQUE D'IMPRESSION STATIQUE VIA IFRAME ----
+    const downloadPdfButton = document.getElementById('download-pdf');
+    if (downloadPdfButton) {
+        downloadPdfButton.addEventListener('click', () => {
+            // 1. Affiche l'alerte préventive
+            const alertMessage = translations[currentLang]?.pdfAlert || translations.fr.pdfAlert;
+            alert(alertMessage);
 
-                    // 2. Utilise setTimeout pour s'assurer que le rendu est stable avant d'imprimer
-                    // Cela rend l'impression indépendante de la taille de la fenêtre au moment du clic.
-                    setTimeout(() => {
-                        window.print();
-                    }, 100); // Un petit délai de 100 millisecondes
-                });
-            }
+            // 2. Création de l'iframe invisible
+            const iframe = document.createElement('iframe');
+            iframe.style.position = 'absolute';
+            iframe.style.width = '0';
+            iframe.style.height = '0';
+            iframe.style.border = '0';
+            document.body.appendChild(iframe);
+
+            // 3. Récupération du contenu du CV et de tous les styles
+            const cvContent = document.getElementById('cv-to-export').innerHTML;
+            const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'));
+            const doc = iframe.contentWindow.document;
+
+            // 4. Construction du document à l'intérieur de l'iframe
+            doc.open();
+            doc.write('<!DOCTYPE html><html lang="' + currentLang + '"><head><meta charset="UTF-8">');
+            // Copie de tous les styles
+            styles.forEach(style => {
+                doc.write(style.outerHTML);
+            });
+            doc.write('</head><body>');
+            // Création d'un conteneur avec une largeur fixe pour forcer le mode "desktop"
+            doc.write('<div id="cv-to-export" style="width: 650px !important; margin: 0 auto;">');
+            doc.write(cvContent);
+            doc.write('</div></body></html>');
+            doc.close();
+
+            // 5. Attendre que l'iframe soit complètement chargée (images, etc.) puis imprimer
+            iframe.onload = function() {
+                // Forcer l'application de la logique de traduction sur le contenu de l'iframe
+                // (Ceci est un extra pour assurer que la langue est correcte même dans l'iframe)            
+
+                const iframeLangButtons = iframe.contentWindow.document.querySelectorAll('.control-button');
+                iframeLangButtons.forEach(btn => btn.style.display = 'none'); // Masquer les boutons dans l'impression
+
+                // Lancement de l'impression sur l'iframe
+                iframe.contentWindow.focus();
+                iframe.contentWindow.print();
+
+                // 6. Destruction de l'iframe après l'impression
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                }, 500); // petit délai pour s'assurer que la tâche d'impression est bien lancée
+            };
         });
+    }
+});
     </script>
 </body>
 </html>
