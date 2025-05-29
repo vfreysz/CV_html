@@ -13,6 +13,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         /* Your existing styles */
         body {
@@ -412,8 +414,6 @@
         }
 
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="fixed top-4 right-4 z-50 space-x-2 no-print"> 
@@ -1131,126 +1131,101 @@
         document.addEventListener('DOMContentLoaded', () => {
             const downloadPdfButton = document.getElementById('download-pdf');
             if (downloadPdfButton) {
-                downloadPdfButton.addEventListener('click', generatePdf);
+                downloadPdfButton.addEventListener('click', generatePdfWithJsPDFHtml);
             }
 
-            // Ensure jsPDF and html2canvas are loaded before trying to use them
-            // We expect them to be available globally via window.jspdf and window.html2canvas
+            async function generatePdfWithJsPDFHtml() {
+                alert('PDF generation with jsPDF.html() started. This might take a moment...');
+                console.log('generatePdfWithJsPDFHtml function called');
 
-            async function generatePdf() {
-                console.log('generatePdf function called');
-                alert('PDF generation started. This might take a moment...'); // Placeholder for user feedback
-
-                const { jsPDF } = window.jspdf;
-                const html2canvas = window.html2canvas;
-
-                if (!jsPDF || !html2canvas) {
+                if (typeof window.jspdf === 'undefined' || typeof window.html2canvas === 'undefined') {
                     console.error('jsPDF or html2canvas is not loaded!');
-                    alert('Error: PDF generation libraries not found.');
+                    alert('Error: jsPDF or html2canvas libraries not found. Check console.');
                     return;
                 }
 
+                const { jsPDF } = window.jspdf;
                 const cvElement = document.getElementById('cv-to-export');
+
                 if (!cvElement) {
                     console.error('CV element #cv-to-export not found!');
                     alert('Error: CV content element not found.');
                     return;
                 }
-                
-                // Temporarily expand publications if the 'Voir plus' button exists and is visible
+
+                // Ensure "Voir plus" for publications is expanded
                 const togglePubButton = document.getElementById('togglePublications');
                 const morePublicationsDiv = document.getElementById('morePublicationsMain');
                 let publicationsWereExpanded = false;
                 if (togglePubButton && morePublicationsDiv && !togglePubButton.classList.contains('hidden') && morePublicationsDiv.classList.contains('hidden')) {
                     togglePubButton.click(); // Simulate click to expand
                     publicationsWereExpanded = true;
-                    // Wait a brief moment for the content to expand - this might need adjustment or a more robust solution
-                    await new Promise(resolve => setTimeout(resolve, 500)); 
+                    // Wait a brief moment for the content to expand.
+                    // A more robust solution might involve MutationObserver or a callback if available.
+                    await new Promise(resolve => setTimeout(resolve, 500));
                 }
-
-                console.log('Capturing CV content with html2canvas...');
                 
                 try {
-                    const canvas = await html2canvas(cvElement, {
-                        scale: 2, // Increase scale for better quality
-                        useCORS: true, // Important for external images if any
-                        logging: true,
-                        onclone: (documentClone) => {
-                            // Ensure all interactive elements that shouldn't be in the PDF are hidden
-                            // For example, the control buttons themselves
-                            const noPrintElements = documentClone.querySelectorAll('.no-print');
-                            noPrintElements.forEach(el => el.style.display = 'none');
-                            
-                            // Ensure correct language content is rendered if it's dynamic
-                            // The current language should already be applied, but good to be mindful
-                        }
-                    });
-                    
-                    console.log('Canvas generated.');
-                    const imgData = canvas.toDataURL('image/png');
-                    
-                    // PDF A4 dimensions in points (pt): 595.28 x 841.89
-                    // Let's use mm for easier calculations with jsPDF: A4 is 210 x 297 mm
-                    const pdfWidthMm = 210;
-                    const pdfHeightMm = 297;
-                    const marginMm = 10; 
-                    const contentWidthMm = pdfWidthMm - 2 * marginMm;
-                    const contentHeightMm = pdfHeightMm - 2 * marginMm;
-
-                    const canvasWidth = canvas.width;
-                    const canvasHeight = canvas.height;
-                    
-                    // Calculate aspect ratio to fit content on PDF page
-                    const imgProps = (new jsPDF()).getImageProperties(imgData);
-                    const pdfImgWidth = contentWidthMm;
-                    const pdfImgHeight = (imgProps.height * pdfImgWidth) / imgProps.width;
-
-                    const pdf = new jsPDF({
-                        orientation: 'p',
-                        unit: 'mm',
-                        format: 'a4'
+                    const doc = new jsPDF({
+                        orientation: 'p', // portrait
+                        unit: 'pt',       // points
+                        format: 'a4'      // A4 size
                     });
 
-                    let currentPosition = 0;
-                    let remainingCanvasHeight = canvasHeight;
-                    const pageCanvasHeight = (canvasWidth * contentHeightMm) / contentWidthMm; // height of canvas portion to fit one PDF page width-wise
+                    // Set margins (in points)
+                    const margin = {
+                        top: 40,
+                        right: 40,
+                        bottom: 40,
+                        left: 40
+                    };
 
-                    while (remainingCanvasHeight > 0) {
-                        const captureHeight = Math.min(remainingCanvasHeight, pageCanvasHeight);
-                        
-                        // Create a temporary canvas to hold the slice
-                        const sliceCanvas = document.createElement('canvas');
-                        sliceCanvas.width = canvasWidth;
-                        sliceCanvas.height = captureHeight;
-                        const sliceCtx = sliceCanvas.getContext('2d');
-                        
-                        // Draw the slice of the original canvas onto the temporary canvas
-                        // Source X, Source Y, Source Width, Source Height, Dest X, Dest Y, Dest Width, Dest Height
-                        sliceCtx.drawImage(canvas, 0, currentPosition, canvasWidth, captureHeight, 0, 0, canvasWidth, captureHeight);
-                        
-                        const pageImgData = sliceCanvas.toDataURL('image/png');
-                        const pageImgHeight = (captureHeight * contentWidthMm) / canvasWidth; // height of this slice on PDF page
+                    // Define options for the .html() method
+                    const htmlOptions = {
+                        callback: function(docInstance) {
+                            // Save the PDF
+                            docInstance.save('CV_Valerian_FREYSZ_jsPDF.pdf');
+                            console.log('PDF generated with jsPDF.html() and download initiated.');
+                            alert('PDF generation complete!');
 
-                        if (currentPosition > 0) {
-                            pdf.addPage();
-                        }
-                        
-                        pdf.addImage(pageImgData, 'PNG', marginMm, marginMm, contentWidthMm, pageImgHeight, undefined, 'FAST');
-                        remainingCanvasHeight -= captureHeight;
-                        currentPosition += captureHeight;
-                    }
-                    
-                    pdf.save('CV_Valerian_FREYSZ.pdf');
-                    console.log('PDF generated and download initiated.');
-                    alert('PDF generation complete!');
+                            // Collapse publications again if they were expanded by this script
+                            if (publicationsWereExpanded && togglePubButton && morePublicationsDiv && !morePublicationsDiv.classList.contains('hidden')) {
+                                togglePubButton.click(); // Simulate click to collapse
+                            }
+                        },
+                        margin: [margin.top, margin.right, margin.bottom, margin.left],
+                        autoPaging: 'slice', // Handles page breaks by slicing elements. 'text' is another option.
+                        html2canvas: {
+                            scale: 2, // Higher scale improves quality
+                            useCORS: true, // For external images, though not strictly needed here
+                            logging: true,
+                            onclone: function(documentClone) {
+                                // Modify the cloned document before rendering
+                                const noPrintElements = documentClone.querySelectorAll('.no-print');
+                                noPrintElements.forEach(el => el.style.display = 'none');
+                                
+                                // Optional: Force certain styles if needed for PDF rendering
+                                // For example, ensure background colors are rendered
+                                // (though html2canvas usually captures computed styles)
+                                // documentClone.body.style.backgroundColor = 'white'; // If needed
+                            }
+                        },
+                        // Adjust width to fit within margins. jsPDF's html method uses element width.
+                        // If element width is wider than page width minus margins, it might scale down or overflow.
+                        // It's often better to ensure the source element #cv-to-export is already constrained
+                        // in its CSS for print or this specific capture.
+                        // For now, we rely on #cv-to-export's existing width and jsPDF's handling.
+                        width: cvElement.offsetWidth // Use the actual width of the element
+                    };
+
+                    console.log('Calling doc.html()...');
+                    doc.html(cvElement, htmlOptions);
 
                 } catch (error) {
-                    console.error('Error generating PDF:', error);
+                    console.error('Error generating PDF with jsPDF.html():', error);
                     alert('An error occurred during PDF generation. Please check the console.');
-                } finally {
-                    // Collapse publications again if they were expanded by this script
                     if (publicationsWereExpanded && togglePubButton && morePublicationsDiv && !morePublicationsDiv.classList.contains('hidden')) {
-                        togglePubButton.click(); // Simulate click to collapse
+                        togglePubButton.click(); // Ensure cleanup even on error
                     }
                 }
             }
