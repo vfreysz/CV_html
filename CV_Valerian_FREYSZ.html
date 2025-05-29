@@ -280,143 +280,224 @@
         
         /* Styles pour l'impression via le navigateur */
         @media print {
-            body {
+            /* --- Réinitialisations et configuration de base de la page --- */
+            html, body {
+                margin: 0 !important;
+                padding: 0 !important;
                 background-color: #FFFFFF !important;
                 color: #000000 !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
-                margin: 0;
-                padding: 0;
+                font-size: 9.5pt !important;
+                line-height: 1.3 !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            @page {
+                size: A4;
+                margin: 12mm !important;
             }
 
             #cv-to-export {
                 width: 100% !important;
                 max-width: none !important;
-                margin: 0 !important;
-                padding: 10mm !important;
                 box-shadow: none !important;
                 border-radius: 0 !important;
                 overflow: visible !important;
+                padding: 0 !important;
             }
 
+            /* --- NOUVELLE TECHNIQUE DE FOND COMPOSITE --- */
             #cv-to-export > div.grid {
-                display: block !important;
-                grid-template-columns: 1fr !important;
-                gap: 0 !important;
-            }
-
-            #cv-to-export aside, 
-            #cv-to-export div.main-content-area {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
                 width: 100% !important;
-                display: block !important; /* Important pour le calcul des sauts */
-                float: none !important;
-                box-shadow: none !important;
-                grid-column: auto / auto !important;
-            }
-            
-            #cv-to-export aside {
-                 margin-bottom: 10mm !important;
-            }
-            #cv-to-export div.main-content-area > section:not(:last-child) {
-                 margin-bottom: 8mm !important;
+                height: auto;
+                /* Le fond est maintenant un composite de deux images : le dégradé ET une couleur unie */
+                background-image:
+                    linear-gradient(to right, white, white), /* 1. Un "dégradé" blanc uni */
+                    linear-gradient(to bottom right, #6366F1, #EC4899); /* 2. Votre dégradé violet */
+
+                background-position:
+                    right, /* Le fond blanc est positionné à droite */
+                    left;  /* Le dégradé violet est positionné à gauche */
+
+                background-size:
+                    64% 100%, /* Le fond blanc prend 64% de la largeur */
+                    36% 100%;  /* Le dégradé violet prend 36% de la largeur */
+
+                background-repeat: no-repeat; /* Chaque fond ne se répète pas */
             }
 
-            .gradient-sidebar {
-                background-image: linear-gradient(to bottom right, #6366F1, #EC4899) !important;
+            #cv-to-export aside.gradient-sidebar {
+                width: 36% !important;
+                padding: 10px !important;
+                margin: 0 !important;
+                /* Les colonnes sont maintenant transparentes, le fond du parent est visible à travers */
+                background: transparent !important;
                 color: #FFFFFF !important;
-                padding: 1.5rem !important;
+                height: auto;
+                page-break-inside: avoid !important;
             }
-            
-            .gradient-sidebar,
-            .sidebar-card-interactive h3, 
-            .sidebar-card-interactive p, 
-            .sidebar-card-interactive ul,
-            .sidebar-card-interactive li, 
-            .sidebar-card-interactive .text-gray-700, 
-            .sidebar-card-interactive .text-gray-600, 
-            .sidebar-card-interactive .text-gray-500, 
-            .sidebar-card-interactive .text-gray-400,
-            .sidebar-card-interactive .text-indigo-100,
-            .sidebar-card-interactive .text-indigo-200,
-            .sidebar-card-interactive .text-indigo-300,
-            .sidebar-card-interactive .icon-link-sidebar {
+
+            #cv-to-export div.main-content-area {
+                width: 64% !important;
+                padding: 10px !important;
+                margin: 0 !important;
+                /* Les colonnes sont maintenant transparentes */
+                background: transparent !important;
+                height: auto;
+            }
+            /* --- FIN DE LA NOUVELLE TECHNIQUE DE FOND --- */
+
+
+            /* --- Styles pour l'en-tête de la Sidebar (sous la photo) --- */
+            #cv-to-export aside.gradient-sidebar .text-center h1[data-translation-key="heroTitle"] {
+                font-size: 18pt !important;
+                font-weight: bold !important;
+                color: #FFFFFF !important;
+                margin-bottom: 0.2em !important;
+            }
+            #cv-to-export aside.gradient-sidebar .text-center p[data-translation-key="heroSubtitle"] {
+                font-size: 1em !important;
+                color: #E0E7FF !important;
+                margin-bottom: 0.4em !important;
+            }
+            #cv-to-export aside.gradient-sidebar .text-center div.flex a.icon-link-sidebar {
+                display: inline-block !important;
+                color: #E0E7FF !important;
+                font-size: 1.3em !important;
+                margin: 0 0.25em !important;
+            }
+            #cv-to-export aside.gradient-sidebar .text-center div.flex a.icon-link-sidebar i {
+                color: inherit !important;
+            }
+            #cv-to-export aside.gradient-sidebar p[data-translation-key="addressSidebar"] {
+                font-size: 0.8em !important;
+                color: #E0E7FF !important;
+                margin-top: 0.4em !important;
+            }
+            /* --- Fin Styles En-tête Sidebar --- */
+
+
+            /* --- Styles spécifiques pour le contenu de la Sidebar --- */
+            .gradient-sidebar h2,
+            .gradient-sidebar span, .gradient-sidebar div:not(.flex) {
                 color: #FFFFFF !important;
             }
-             .sidebar-card-interactive .text-sky-600 {
+            .sidebar-card-interactive p,
+            .sidebar-card-interactive li {
+                font-size: 0.78em !important;
+                line-height: 1.3 !important;
+                color: #E0E7FF !important;
+            }
+            .sidebar-card-interactive .text-sky-600 {
                 color: #A5B4FC !important;
             }
-            .sidebar-card-interactive .tag, .sidebar-card-interactive a.tag { /* Ensure sidebar tags are styled for print */
-                 background-color: rgba(255,255,255,0.2) !important;
-                 color: #FFFFFF !important;
-                 text-decoration: none !important;
+            .sidebar-card-interactive .tag, .sidebar-card-interactive a.tag {
+                background-color: rgba(255,255,255,0.2) !important;
+                color: #FFFFFF !important;
+                text-decoration: none !important;
+                padding: 0.2rem 0.4rem !important;
+                font-size: 0.75em !important;
+                margin: 1px 2px !important;
             }
+            #cv-to-export aside.gradient-sidebar .section-title-sidebar-styled {
+                font-size: 1.15em !important;
+                margin-bottom: 0.4em !important;
+                font-weight: bold;
+            }
+            #cv-to-export aside.gradient-sidebar .sidebar-card-interactive {
+                padding: 0.65rem !important;
+                margin-bottom: 0.65rem !important;
+            }
+            #cv-to-export aside.gradient-sidebar .sidebar-card-interactive h3 {
+                font-size: 0.82em !important;
+                font-weight: bold !important;
+                color: #FFFFFF !important;
+                margin-top: 0 !important;
+                margin-bottom: 0.15em !important;
+            }
+            /* --- Fin Styles Sidebar --- */
 
-            .experience-timeline-container {
-                padding-left: 0 !important;
+
+            /* --- Styles pour le contenu principal --- */
+            #cv-to-export div.main-content-area .section-title-main-styled {
+                font-size: 1.3em !important;
+                margin-bottom: 0.6em !important;
+                font-weight: bold;
             }
-            .experience-entry-card::before,
-            .experience-entry-card::after {
+            #cv-to-export div.main-content-area .main-content-card-interactive {
+                padding: 0.75rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+            #cv-to-export div.main-content-area .main-content-card-interactive h3 {
+                font-size: 1.15em !important;
+                font-weight: bold;
+            }
+            .main-content-card-interactive p,
+            .main-content-card-interactive ul li {
+                font-size: 0.85em !important;
+                line-height: 1.35 !important;
+            }
+            /* --- Fin Styles Contenu Principal --- */
+
+
+            /* --- Styles généraux pour l'impression et la lisibilité --- */
+            h1,h2,h3,h4,h5,h6 { margin-top: 0.5em; margin-bottom: 0.25em; }
+            p { margin-top: 0; margin-bottom: 0.5em; }
+            ul { padding-left: 18px !important; margin-top: 0; margin-bottom: 0.5em; }
+            li { margin-bottom: 3px !important; }
+
+            /* Réinitialisation des animations et éléments non imprimables */
+            .fade-in { opacity: 1 !important; transform: translateY(0) !important; animation: none !important; }
+            .control-button, .no-print, button#lang-fr, button#lang-en, footer.footer-custom,
+            section#contact-main {
                 display: none !important;
             }
 
-            .fade-in {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
-                animation: none !important;
+            .experience-entry-card::before, .experience-entry-card::after { display: none !important; }
+            .experience-timeline-container { padding-left: 0 !important; }
+
+
+            /* --- Gestion des Sauts de Page --- */
+            .sidebar-card-interactive,
+            .main-content-card-interactive,
+            .experience-entry-card {
+                page-break-inside: avoid !important;
+            }
+            .section-title-main-styled, .section-title-sidebar-styled,
+            h1, h2, h3 {
+                page-break-after: avoid !important;
+            }
+            section {
+                page-break-inside: auto !important;
+            }
+            .manual-page-break-before {
+                page-break-before: always !important;
             }
 
-            .control-button, 
-            .no-print {
-                display: none !important;
-            }
-            
-            .publication-link {
-                color: #6366F1 !important;
-                text-decoration: underline !important;
-            }
-            a.tag { /* Ensure linked tags also get basic styling for print, if not sidebar */
+            .publication-link { color: #6366F1 !important; text-decoration: underline !important; font-weight: normal !important; }
+            div.main-content-area a.tag {
                 color: #0369a1 !important;
                 background-color: #e0f2fe !important;
                 text-decoration: none !important;
+                padding: 0.25rem 0.5rem !important;
+                font-size: 0.8em !important;
+                margin: 2px !important;
             }
-            
-            /* --- NOUVELLES RÈGLES DE SAUTS DE PAGE POUR L'IMPRESSION NAVIGATEUR --- */
-            .sidebar-card-interactive,
-            .main-content-card-interactive, 
-            .experience-entry-card {
-                page-break-inside: avoid !important;
-                display: block !important;
-            }
-
-            .section-title-main-styled,
-            .section-title-sidebar-styled,
-            .sidebar-card-interactive > h3, 
-            .main-content-card-interactive > h3 {
-                page-break-after: avoid !important;
-            }
-            
-            section#skills-sidebar, 
-            section#education-sidebar,
-            section#teaching-sidebar,
-            section#misc-sidebar,
-            section#experience,      
-            section#publications,
-            section#contact-main {
-                page-break-inside: auto !important;
-            }
-            
-            .manual-page-break {
-                page-break-before: always !important;
-            }
-            /* --- FIN DES NOUVELLES RÈGLES DE SAUTS DE PAGE --- */
         }
-
     </style>
 </head>
 <body>
     <div class="fixed top-4 right-4 z-50 space-x-2 no-print"> 
         <button id="lang-fr" class="control-button active">FR</button>
         <button id="lang-en" class="control-button">EN</button>
+        <button id="download-pdf" class="control-button" aria-label="PDF">
+            <i class="fas fa-file-pdf mr-2"></i> PDF
+        </button>
     </div>
 
     <div id="cv-to-export" class="container mx-auto max-w-screen-xl p-0 my-0 md:my-8 md:rounded-xl md:shadow-2xl md:overflow-hidden">
@@ -769,6 +850,7 @@
                 address: "Adresse : TALENCE", 
                 allRightsReserved: "Tous droits réservés.",
                 designedWith: "Conçu avec",
+                pdfAlert: "Pour une meilleure lisibilité, seule une sélection des 3 publications les plus récentes est incluse dans le PDF. N'oubliez pas de désactiver les en-têtes/pieds de page et d'activer les graphiques d'arrière-plan dans les options d'impression pour un rendu optimal.",
             },
             en: { 
                 pageTitle: "Valerian Freysz - Resume",
@@ -910,6 +992,7 @@
                 address: "Address: TALENCE, France", 
                 allRightsReserved: "All rights reserved.",
                 designedWith: "Designed with",
+                pdfAlert: "For better readability, only a selection of the 3 most recent publications is included in the PDF. Remember to disable headers/footers and enable background graphics in the print options for the best result.",
             }
         };
 
@@ -1121,6 +1204,18 @@
             const contactEmailButton = document.getElementById('contactEmailButton');
             if (contactEmailButton) {
                 contactEmailButton.href = 'mailto:' + emailAddress;
+            }
+
+            const downloadPdfButton = document.getElementById('download-pdf');
+            if (downloadPdfButton) {
+                downloadPdfButton.addEventListener('click', () => {
+                    // 1. Affiche l'alerte dans la langue actuelle
+                    const alertMessage = translations[currentLang]?.pdfAlert || translations.fr.pdfAlert;
+                    alert(alertMessage);
+
+                    // 2. Ouvre la fenêtre d'impression du navigateur
+                    window.print();
+                });
             }
         });
     </script>
