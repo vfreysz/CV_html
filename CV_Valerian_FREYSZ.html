@@ -1213,8 +1213,11 @@
                     const alertMessage = translations[currentLang]?.pdfAlert || translations.fr.pdfAlert;
                     alert(alertMessage);
 
-                    // 2. Ouvre la fenêtre d'impression du navigateur
-                    window.print();
+                    // 2. Utilise setTimeout pour s'assurer que le rendu est stable avant d'imprimer
+                    // Cela rend l'impression indépendante de la taille de la fenêtre au moment du clic.
+                    setTimeout(() => {
+                        window.print();
+                    }, 100); // Un petit délai de 100 millisecondes
                 });
             }
         });
