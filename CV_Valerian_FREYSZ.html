@@ -315,27 +315,18 @@
                 flex-wrap: nowrap !important;
                 width: 100% !important;
                 height: auto;
-                /* Le fond est maintenant un composite de deux images : le dégradé ET une couleur unie */
                 background-image:
-                    linear-gradient(to right, white, white), /* 1. Un "dégradé" blanc uni */
-                    linear-gradient(to bottom right, #6366F1, #EC4899); /* 2. Votre dégradé violet */
-
-                background-position:
-                    right, /* Le fond blanc est positionné à droite */
-                    left;  /* Le dégradé violet est positionné à gauche */
-
-                background-size:
-                    64% 100%, /* Le fond blanc prend 64% de la largeur */
-                    36% 100%;  /* Le dégradé violet prend 36% de la largeur */
-
-                background-repeat: no-repeat; /* Chaque fond ne se répète pas */
+                    linear-gradient(to right, white, white),
+                    linear-gradient(to bottom right, #6366F1, #EC4899);
+                background-position: right, left;
+                background-size: 64% 100%, 36% 100%;
+                background-repeat: no-repeat;
             }
 
             #cv-to-export aside.gradient-sidebar {
                 width: 36% !important;
                 padding: 10px !important;
                 margin: 0 !important;
-                /* Les colonnes sont maintenant transparentes, le fond du parent est visible à travers */
                 background: transparent !important;
                 color: #FFFFFF !important;
                 height: auto;
@@ -346,7 +337,6 @@
                 width: 64% !important;
                 padding: 10px !important;
                 margin: 0 !important;
-                /* Les colonnes sont maintenant transparentes */
                 background: transparent !important;
                 height: auto;
             }
@@ -381,29 +371,7 @@
             }
             /* --- Fin Styles En-tête Sidebar --- */
 
-
-            /* --- Styles spécifiques pour le contenu de la Sidebar --- */
-            .gradient-sidebar h2,
-            .gradient-sidebar span, .gradient-sidebar div:not(.flex) {
-                color: #FFFFFF !important;
-            }
-            .sidebar-card-interactive p,
-            .sidebar-card-interactive li {
-                font-size: 0.78em !important;
-                line-height: 1.3 !important;
-                color: #E0E7FF !important;
-            }
-            .sidebar-card-interactive .text-sky-600 {
-                color: #A5B4FC !important;
-            }
-            .sidebar-card-interactive .tag, .sidebar-card-interactive a.tag {
-                background-color: rgba(255,255,255,0.2) !important;
-                color: #FFFFFF !important;
-                text-decoration: none !important;
-                padding: 0.2rem 0.4rem !important;
-                font-size: 0.75em !important;
-                margin: 1px 2px !important;
-            }
+            /* --- STYLES DE CARTE UNIFIÉS --- */
             #cv-to-export aside.gradient-sidebar .section-title-sidebar-styled {
                 font-size: 1.15em !important;
                 margin-bottom: 0.4em !important;
@@ -420,7 +388,31 @@
                 margin-top: 0 !important;
                 margin-bottom: 0.15em !important;
             }
-            /* --- Fin Styles Sidebar --- */
+            
+            /* --- CLASSE ROBUSTE POUR UNIFORMISER LA POLICE DU CORPS DE TEXTE --- */
+            /* Style pour les paragraphes dans la barre latérale */
+            .print-sidebar-body-text p {
+                font-size: 0.77em !important;
+                line-height: 1.35 !important;
+            }
+
+            /* Style pour les listes dans la barre latérale (avec une légère augmentation) */
+            .print-sidebar-body-text li {
+                font-size: 0.89em !important; /* Taille de police augmentée pour une meilleure lisibilité */
+                line-height: 1.35 !important;
+                color: #E0E7FF !important;
+            }
+            /* --- Fin de la classe unifiée --- */
+
+            .sidebar-card-interactive .text-sky-600 { color: #A5B4FC !important; }
+            .sidebar-card-interactive .tag, .sidebar-card-interactive a.tag {
+                background-color: rgba(255,255,255,0.2) !important;
+                color: #FFFFFF !important;
+                text-decoration: none !important;
+                padding: 0.2rem 0.4rem !important;
+                font-size: 0.75em !important;
+                margin: 1px 2px !important;
+            }
 
 
             /* --- Styles pour le contenu principal --- */
@@ -523,7 +515,7 @@
                     </p>
                 </div>
 
-                <section id="about-sidebar" class="sidebar-card-interactive fade-in" style="animation-delay: 0.1s;">
+                <section id="about-sidebar" class="sidebar-card-interactive fade-in print-sidebar-body-text" style="animation-delay: 0.1s;">
                     <h2 class="section-title-sidebar-styled mb-4">
                         <i class="fas fa-user-tie mr-3 text-indigo-300"></i> <span data-translation-key="aboutTitle">À Propos de Moi</span>
                     </h2>
@@ -531,25 +523,25 @@
                 </section>
 
                 <section id="skills-sidebar" class="space-y-6 fade-in" style="animation-delay: 0.15s;">
-                    <div class="sidebar-card-interactive">
-                        <h3 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-cogs mr-3 text-indigo-300"></i><span data-translation-key="skillsTechTitle">Scientifique & Technique</span></h3>
+                    <div class="sidebar-card-interactive print-sidebar-body-text">
+                        <h2 class="section-title-sidebar-styled"><i class="fas fa-cogs mr-3 text-indigo-300"></i><span data-translation-key="skillsTechTitle">Scientifique & Technique</span></h2>
                         <ul class="list-disc list-inside space-y-1 text-sm pl-1" data-translation-list="skillsTechItems"></ul>
                     </div>
                     <div class="sidebar-card-interactive">
-                        <h3 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-code mr-3 text-indigo-300"></i><span data-translation-key="skillsProgTitle">Programmation</span></h3>
+                        <h2 class="section-title-sidebar-styled"><i class="fas fa-code mr-3 text-indigo-300"></i><span data-translation-key="skillsProgTitle">Programmation</span></h2>
                         <div class="flex flex-wrap -m-1.5" data-translation-tags="skillsProgItems"></div> 
                     </div>
                     <div class="sidebar-card-interactive">
-                        <h3 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-tools mr-3 text-indigo-300"></i><span data-translation-key="skillsSoftwareTitle">Logiciels & Outils</span></h3>
+                        <h2 class="section-title-sidebar-styled"><i class="fas fa-tools mr-3 text-indigo-300"></i><span data-translation-key="skillsSoftwareTitle">Logiciels & Outils</span></h2>
                         <div class="flex flex-wrap -m-1.5" data-translation-tags="skillsSoftwareItems"></div> 
                     </div>
-                    <div class="sidebar-card-interactive">
-                        <h3 class="text-xl font-semibold mb-3 flex items-center"><i class="fas fa-lightbulb mr-3 text-indigo-300"></i><span data-translation-key="skillsOtherTitle">Autres</span></h3>
+                    <div class="sidebar-card-interactive print-sidebar-body-text">
+                        <h2 class="section-title-sidebar-styled"><i class="fas fa-lightbulb mr-3 text-indigo-300"></i><span data-translation-key="skillsOtherTitle">Autres</span></h2>
                         <ul class="list-disc list-inside space-y-1 text-sm pl-1" data-translation-list="skillsOtherItems"></ul>
                     </div>
                 </section>
 
-                <section id="education-sidebar" class="sidebar-card-interactive fade-in" style="animation-delay: 0.2s;">
+                <section id="education-sidebar" class="sidebar-card-interactive fade-in print-sidebar-body-text" style="animation-delay: 0.2s;">
                     <h2 class="section-title-sidebar-styled mb-4">
                         <i class="fas fa-graduation-cap mr-3 text-indigo-300"></i> <span data-translation-key="educationTitle">Formation</span>
                     </h2>
@@ -575,17 +567,19 @@
                     </div>
                 </section>
                 
-                <section id="teaching-sidebar" class="sidebar-card-interactive fade-in" style="animation-delay: 0.25s;">
+                <section id="teaching-sidebar" class="sidebar-card-interactive fade-in print-sidebar-body-text" style="animation-delay: 0.25s;">
                     <h2 class="section-title-sidebar-styled mb-4">
                         <i class="fas fa-chalkboard-teacher mr-3 text-indigo-300"></i> <span data-translation-key="teachingTitle">Enseignement</span>
                     </h2>
-                    <h3 class="text-md font-semibold" data-translation-key="teachingRole"></h3>
-                    <p class="text-sm" data-translation-key="teachingUni"></p>
-                    <p class="text-xs mb-2" data-translation-key="teachingDates"></p>
-                    <ul class="list-disc list-inside space-y-1 text-sm pl-1" data-translation-list="teachingCourses"></ul>
+                    <div>
+                        <h3 class="text-md font-semibold" data-translation-key="teachingRole"></h3>
+                        <p class="text-sm" data-translation-key="teachingUni"></p>
+                        <p class="text-xs mb-2" data-translation-key="teachingDates"></p>
+                        <ul class="list-disc list-inside space-y-1 text-sm pl-1" data-translation-list="teachingCourses"></ul>
+                    </div>
                 </section>
 
-                <section id="misc-sidebar" class="sidebar-card-interactive fade-in" style="animation-delay: 0.3s;">
+                <section id="misc-sidebar" class="sidebar-card-interactive fade-in print-sidebar-body-text" style="animation-delay: 0.3s;">
                     <h2 class="section-title-sidebar-styled mb-4">
                         <i class="fas fa-info-circle mr-3 text-indigo-300"></i> <span data-translation-key="miscTitle">Divers</span>
                     </h2>
@@ -601,7 +595,11 @@
                         </div>
                         <div>
                             <h3 class="text-md font-semibold mb-1"><span data-translation-key="miscInterestsTitle">Centres d'intérêt</span></h3>
-                            <div id="interestsListContainerSidebar" class="text-sm"></div>
+                            <p class="text-sm" data-translation-key="miscInterest1"></p>
+                            <p class="text-sm" data-translation-key="miscInterest2"></p>
+                            <p class="text-sm" data-translation-key="miscInterest3"></p>
+                            <p class="text-sm" data-translation-key="miscInterest4"></p>
+                            <p class="text-sm" data-translation-key="miscInterest5"></p>
                         </div>
                     </div>
                 </section>
@@ -708,7 +706,6 @@
     </footer>
 
     <script>
-        // Your existing JavaScript
         const translations = {
             fr: {
                 pageTitle: "Valerian Freysz - CV",
@@ -837,20 +834,22 @@
                 miscPermisTitle: "Permis",
                 miscPermisB: "Permis B",
                 miscInterestsTitle: "Centres d'intérêt",
-                miscInterestItems: [
-                    { text: "Football" },
-                    { text: "Course à pied" },
-                    { text: "Cyclisme" },
-                    { text: "Jeux vidéo compétitifs" },
-                    { text: "Outils IA" }
-                ],
+                miscInterest1: "Football",
+                miscInterest2: "Course à pied",
+                miscInterest3: "Cyclisme",
+                miscInterest4: "Jeux vidéo compétitifs",
+                miscInterest5: "Outils IA",
                 contactTitle: "Contactez-moi",
                 contactIntro: "N'hésitez pas à me contacter pour toute opportunité ou collaboration.",
                 sendEmailBtn: "Envoyer un Email",
                 address: "Adresse : TALENCE", 
                 allRightsReserved: "Tous droits réservés.",
                 designedWith: "Conçu avec",
-                pdfAlert: "Pour une meilleure lisibilité, seule une sélection des 3 publications les plus récentes est incluse dans le PDF. N'oubliez pas de désactiver les en-têtes/pieds de page et d'activer les graphiques d'arrière-plan dans les options d'impression pour un rendu optimal.",
+                pdfAlert: "Conseils pour générer un PDF optimal :\n\n" +
+                          "• Destination : Choisissez 'Enregistrer au format PDF'.\n" +
+                          "• Options : Assurez-vous de désactiver 'En-têtes et pieds de page'.\n" +
+                          "• Options : N'oubliez pas d'activer 'Graphiques d'arrière-plan' pour les couleurs.\n\n" +
+                          "Remarque : Seules les 3 publications les plus récentes sont incluses dans le PDF pour une meilleure lisibilité.",
             },
             en: { 
                 pageTitle: "Valerian Freysz - Resume",
@@ -944,7 +943,7 @@
                     { text: "Scribus", url: "https://www.scribus.net" },
                     { text: "QT", url: "https://www.qt.io" }
                 ], 
-                skillsOtherTitle: "Others",
+                skillsOtherTitle: "Other Skills",
                 skillsOtherItems: ["Modeling & Simulation", "Algorithmics", "Data Visualization", "Rapid Prototyping", "Project Management", "Scientific Writing", "Technological Watch"],
                 educationTitle: "Education",
                 eduPhdTitle: "PhD in Thermal and Energy Engineering",
@@ -972,27 +971,29 @@
                 pub8_2019_freysz_v_a: "FREYSZ, V., AMIARD-HUDEBINE, G., ZAOUTER, Y., FREYSZ, E. (2019). Compact and versatile OPG-OPA based on a periodically poled nonlinear crystal pumped by femtosecond Ytterbium fiber laser. <em class='text-indigo-500'>Photonic West.</em>",
                 seeMorePub: "See more",
                 seeLessPub: "See less",
-                miscTitle: "Miscellaneous",
+                miscTitle: "More Info",
                 miscLanguagesTitle: "Languages",
                 miscLangFr: "French (Native)",
                 miscLangEn: "English (Fluent - 2 years exp. USA)",
                 miscPermisTitle: "Driver's License",
                 miscPermisB: "License B",
                 miscInterestsTitle: "Interests",
-                miscInterestItems: [
-                    { text: "Football (Soccer)" },
-                    { text: "Running" },
-                    { text: "Cycling" },
-                    { text: "Competitive Video Games" },
-                    { text: "AI Tools" }
-                ],
+                miscInterest1: "Football (Soccer)",
+                miscInterest2: "Running",
+                miscInterest3: "Cycling",
+                miscInterest4: "Competitive Video Games",
+                miscInterest5: "AI Tools",
                 contactTitle: "Contact Me",
                 contactIntro: "Feel free to contact me for any opportunity or collaboration.",
                 sendEmailBtn: "Send an Email",
                 address: "Address: TALENCE, France", 
                 allRightsReserved: "All rights reserved.",
                 designedWith: "Designed with",
-                pdfAlert: "For better readability, only a selection of the 3 most recent publications is included in the PDF. Remember to disable headers/footers and enable background graphics in the print options for the best result.",
+                pdfAlert: "Tips for an optimal PDF export:\n\n" +
+                          "• Destination: Choose 'Save as PDF'.\n" +
+                          "• Options: Make sure to disable 'Headers and footers'.\n" +
+                          "• Options: Don't forget to enable 'Background graphics' for colors.\n\n" +
+                          "Note: For readability, only the 3 most recent publications are included in the PDF.",
             }
         };
 
@@ -1031,18 +1032,6 @@
             });
         }
         
-        function populateInterests() {
-            const container = document.getElementById('interestsListContainerSidebar'); 
-            if (!container) return;
-            container.innerHTML = '';
-            const interestItems = translations[currentLang].miscInterestItems || translations.fr.miscInterestItems || [];
-            interestItems.forEach(item => {
-                const p = document.createElement('p');
-                p.className = 'text-sm mb-1'; 
-                p.textContent = item.text;
-                container.appendChild(p);
-            });
-        }
 
         function changeLanguage(lang) {
             currentLang = lang;
@@ -1068,7 +1057,6 @@
                 populateTags(div, key); 
             });
             
-            populateInterests();
 
             document.querySelectorAll('[data-publication-key]').forEach(el => {
                 const key = el.getAttribute('data-publication-key');
@@ -1171,7 +1159,6 @@
         });
         
 document.addEventListener('DOMContentLoaded', () => {
-    // ---- Tout votre code existant pour la langue et les coordonnées reste ici ----
     const preferredLang = localStorage.getItem('preferredLang');
     if (preferredLang && (preferredLang === 'fr' || preferredLang === 'en')) {
         changeLanguage(preferredLang);
@@ -1179,11 +1166,9 @@ document.addEventListener('DOMContentLoaded', () => {
         changeLanguage('fr'); 
     }
 
-    // Obfuscation des coordonnées
     const user = 'vfreysz';
     const domain = 'gmail.com';
     const emailAddress = user + '@' + domain;
-
     const countryCode = '+33';
     const phonePart1 = '6';
     const phonePart2 = '79';
@@ -1200,18 +1185,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const contactEmailButton = document.getElementById('contactEmailButton');
     if (contactEmailButton) { contactEmailButton.href = 'mailto:' + emailAddress; }
-    // ---- Fin du code existant ----
 
-
-    // ---- NOUVELLE LOGIQUE D'IMPRESSION STATIQUE VIA IFRAME ----
     const downloadPdfButton = document.getElementById('download-pdf');
     if (downloadPdfButton) {
         downloadPdfButton.addEventListener('click', () => {
-            // 1. Affiche l'alerte préventive
             const alertMessage = translations[currentLang]?.pdfAlert || translations.fr.pdfAlert;
             alert(alertMessage);
 
-            // 2. Création de l'iframe invisible
             const iframe = document.createElement('iframe');
             iframe.style.position = 'absolute';
             iframe.style.width = '0';
@@ -1219,41 +1199,29 @@ document.addEventListener('DOMContentLoaded', () => {
             iframe.style.border = '0';
             document.body.appendChild(iframe);
 
-            // 3. Récupération du contenu du CV et de tous les styles
             const cvContent = document.getElementById('cv-to-export').innerHTML;
             const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'));
             const doc = iframe.contentWindow.document;
 
-            // 4. Construction du document à l'intérieur de l'iframe
             doc.open();
             doc.write('<!DOCTYPE html><html lang="' + currentLang + '"><head><meta charset="UTF-8">');
-            // Copie de tous les styles
             styles.forEach(style => {
                 doc.write(style.outerHTML);
             });
             doc.write('</head><body>');
-            // Création d'un conteneur avec une largeur fixe pour forcer le mode "desktop"
-            doc.write('<div id="cv-to-export" style="width: 650px !important; margin: 0 auto;">');
+            doc.write('<div id="cv-to-export" style="width: 700px !important; margin: 0 auto;">');
             doc.write(cvContent);
             doc.write('</div></body></html>');
             doc.close();
 
-            // 5. Attendre que l'iframe soit complètement chargée (images, etc.) puis imprimer
             iframe.onload = function() {
-                // Forcer l'application de la logique de traduction sur le contenu de l'iframe
-                // (Ceci est un extra pour assurer que la langue est correcte même dans l'iframe)            
-
                 const iframeLangButtons = iframe.contentWindow.document.querySelectorAll('.control-button');
-                iframeLangButtons.forEach(btn => btn.style.display = 'none'); // Masquer les boutons dans l'impression
-
-                // Lancement de l'impression sur l'iframe
+                iframeLangButtons.forEach(btn => btn.style.display = 'none');
                 iframe.contentWindow.focus();
                 iframe.contentWindow.print();
-
-                // 6. Destruction de l'iframe après l'impression
                 setTimeout(() => {
                     document.body.removeChild(iframe);
-                }, 500); // petit délai pour s'assurer que la tâche d'impression est bien lancée
+                }, 500);
             };
         });
     }
